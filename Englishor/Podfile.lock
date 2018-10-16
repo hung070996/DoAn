@@ -1,36 +1,52 @@
 PODS:
   - AMPopTip (3.5.0)
+  - ButtonWheel (0.1.1)
   - CountdownLabel (4.0.1)
+  - Floaty (4.1.0)
   - Kingfisher (4.10.0)
   - Reusable (4.0.3):
     - Reusable/Storyboard (= 4.0.3)
     - Reusable/View (= 4.0.3)
   - Reusable/Storyboard (4.0.3)
   - Reusable/View (4.0.3)
+  - SwiftyButton (0.8.2)
   - SWRevealViewController (2.3.0)
+  - TVButton (1.0.0)
 
 DEPENDENCIES:
   - AMPopTip
+  - ButtonWheel
   - CountdownLabel (~> 4.0)
+  - Floaty
   - Kingfisher
   - Reusable
+  - SwiftyButton
   - SWRevealViewController
+  - TVButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AMPopTip
+    - ButtonWheel
     - CountdownLabel
+    - Floaty
     - Kingfisher
     - Reusable
+    - SwiftyButton
     - SWRevealViewController
+    - TVButton
 
 SPEC CHECKSUMS:
   AMPopTip: 871ae0570b68fe396e714922b3f7d8ed6a36bb71
+  ButtonWheel: 24afd7055da6548aaf5c7d40f9ea2e1b3eade706
   CountdownLabel: c9975e3f329140b5e7d1f45cd63b1300badd1712
+  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  TVButton: 4eb73ebb4a3a7e3fd506da9c69497feeeb847051
 
-PODFILE CHECKSUM: d35fa1c27416f0d4e304f5d13799f7fe91fd6023
+PODFILE CHECKSUM: fcdb1e5ca363c8c8f12975dc726b2b06e1e1215b
 
 COCOAPODS: 1.5.3

@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */; };
+		086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA8821763F9800F5FE57 /* StartViewController.swift */; };
 		08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFD7DF216F92C50096800C /* AppDelegate.swift */; };
-		08AFD7E2216F92C50096800C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFD7E1216F92C50096800C /* ViewController.swift */; };
 		08AFD7E5216F92C50096800C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AFD7E3216F92C50096800C /* Main.storyboard */; };
 		08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AFD7E6216F92C70096800C /* Assets.xcassets */; };
 		08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AFD7E8216F92C70096800C /* LaunchScreen.storyboard */; };
-		08AFD7F2216FA4490096800C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFD7F1216FA4490096800C /* HomeViewController.swift */; };
+		08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */; };
+		08B70FDA2174DE4000649682 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70FD92174DE4000649682 /* Topic.swift */; };
 		781D99E9462EF381DFA9C263 /* Pods_Englishor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		071703A5270288483044973E /* Pods-Englishor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.debug.xcconfig"; sourceTree = "<group>"; };
+		086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDifficultyViewController.swift; sourceTree = "<group>"; };
+		086ABA8821763F9800F5FE57 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		08AFD7DC216F92C50096800C /* Englishor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Englishor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AFD7DF216F92C50096800C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		08AFD7E1216F92C50096800C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		08AFD7E4216F92C50096800C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		08AFD7E6216F92C70096800C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08AFD7E9216F92C70096800C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08AFD7EB216F92C70096800C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		08AFD7F1216FA4490096800C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTopicViewController.swift; sourceTree = "<group>"; };
+		08B70FD92174DE4000649682 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		7C20E9C79B6AD13CDAA56398 /* Pods-Englishor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.release.xcconfig"; sourceTree = "<group>"; };
 		A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Englishor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -64,12 +68,14 @@
 			isa = PBXGroup;
 			children = (
 				08AFD7DF216F92C50096800C /* AppDelegate.swift */,
-				08AFD7E1216F92C50096800C /* ViewController.swift */,
+				08B70FD92174DE4000649682 /* Topic.swift */,
 				08AFD7E3216F92C50096800C /* Main.storyboard */,
 				08AFD7E6216F92C70096800C /* Assets.xcassets */,
 				08AFD7E8216F92C70096800C /* LaunchScreen.storyboard */,
 				08AFD7EB216F92C70096800C /* Info.plist */,
-				08AFD7F1216FA4490096800C /* HomeViewController.swift */,
+				08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */,
+				086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */,
+				086ABA8821763F9800F5FE57 /* StartViewController.swift */,
 			);
 			path = Englishor;
 			sourceTree = "<group>";
@@ -168,18 +174,26 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Englishor/Pods-Englishor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AMPopTip/AMPopTip.framework",
+				"${BUILT_PRODUCTS_DIR}/ButtonWheel/ButtonWheel.framework",
 				"${BUILT_PRODUCTS_DIR}/CountdownLabel/CountdownLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
+				"${BUILT_PRODUCTS_DIR}/TVButton/TVButton.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMPopTip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ButtonWheel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CountdownLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TVButton.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -211,9 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08AFD7E2216F92C50096800C /* ViewController.swift in Sources */,
+				086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */,
+				08B70FDA2174DE4000649682 /* Topic.swift in Sources */,
+				086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */,
+				08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */,
 				08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */,
-				08AFD7F2216FA4490096800C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

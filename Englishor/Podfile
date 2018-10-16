@@ -11,4 +11,8 @@ pod 'CountdownLabel', '~> 4.0'
 pod 'AMPopTip'
 pod 'SWRevealViewController'
 pod 'Kingfisher'
+pod 'ButtonWheel'
+pod 'TVButton'
+pod 'SwiftyButton'
+pod 'Floaty'
 end
