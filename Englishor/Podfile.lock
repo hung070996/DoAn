@@ -9,9 +9,10 @@ PODS:
     - Reusable/View (= 4.0.3)
   - Reusable/Storyboard (4.0.3)
   - Reusable/View (4.0.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SwiftyButton (0.8.2)
-  - SWRevealViewController (2.3.0)
-  - TVButton (1.0.0)
 
 DEPENDENCIES:
   - AMPopTip
@@ -20,9 +21,8 @@ DEPENDENCIES:
   - Floaty
   - Kingfisher
   - Reusable
+  - SDWebImage
   - SwiftyButton
-  - SWRevealViewController
-  - TVButton
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -32,9 +32,8 @@ SPEC REPOS:
     - Floaty
     - Kingfisher
     - Reusable
+    - SDWebImage
     - SwiftyButton
-    - SWRevealViewController
-    - TVButton
 
 SPEC CHECKSUMS:
   AMPopTip: 871ae0570b68fe396e714922b3f7d8ed6a36bb71
@@ -43,10 +42,9 @@ SPEC CHECKSUMS:
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
-  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
-  TVButton: 4eb73ebb4a3a7e3fd506da9c69497feeeb847051
 
-PODFILE CHECKSUM: fcdb1e5ca363c8c8f12975dc726b2b06e1e1215b
+PODFILE CHECKSUM: fca58c35b7346250cbce939f3ba1423c6961d6b3
 
 COCOAPODS: 1.5.3

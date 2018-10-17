@@ -27,8 +27,9 @@ class ChooseTopicViewController: UIViewController {
             var buttonPiece = ButtonPiece(name: topic.name,
                                           color: topic.rawValue % 2 == 0 ? .red : .blue,
                                           centerOffset: .zero)
+            let font = UIFont(name: "Chalkboard SE", size: 20)!
             buttonPiece.setLabel(maxLabelWidth: 100,
-                                 labelFont: UIFont(name: "Chalkboard SE", size: 20)!,
+                                 labelFont: font,
                                  textColor: .white)
             buttonPiece.setImage(image: topic.icon,
                                  imageViewSize: CGSize(width: 50, height: 50),
@@ -45,3 +46,4 @@ extension ChooseTopicViewController: ButtonWheelDelegate {
         navigationController?.pushViewController(vc!, animated: true)
     }
 }
+

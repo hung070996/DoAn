@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqF-La-YWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-808.79999999999995" y="-187.55622188905548"/>
+            <point key="canvasLocation" x="-1073" y="-188"/>
         </scene>
         <!--Choose Difficulty View Controller-->
         <scene sceneID="Ves-D8-lc0">
@@ -126,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLZ-9L-sOQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="-188.45577211394306"/>
+            <point key="canvasLocation" x="-415" y="-188"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="uuF-cE-0Cg">
@@ -137,28 +137,104 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQr-Z6-caj" customClass="Floaty" customModule="Floaty">
-                                <rect key="frame" x="20" y="597" width="50" height="50"/>
+                                <rect key="frame" x="20" y="580.5" width="66.5" height="66.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wQr-Z6-caj" secondAttribute="height" id="Fq4-xT-LsT"/>
-                                    <constraint firstAttribute="width" constant="50" id="gyG-Zf-llQ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKK-Xg-LBy" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="167.5" y="580.5" width="187.5" height="66.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                <state key="normal" title="READY →">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickReady:" destination="7XS-zW-1HO" eventType="touchUpInside" id="rPO-qH-slr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MKK-Xg-LBy" firstAttribute="width" secondItem="pjZ-eg-eih" secondAttribute="width" multiplier="1/2" id="A2d-WQ-S9Y"/>
+                            <constraint firstItem="MKK-Xg-LBy" firstAttribute="height" secondItem="pjZ-eg-eih" secondAttribute="height" multiplier="1/10" id="F86-Sa-Lh9"/>
+                            <constraint firstItem="A0e-Wd-Vzq" firstAttribute="bottom" secondItem="MKK-Xg-LBy" secondAttribute="bottom" constant="20" id="Fgo-eY-X0D"/>
+                            <constraint firstItem="A0e-Wd-Vzq" firstAttribute="trailing" secondItem="MKK-Xg-LBy" secondAttribute="trailing" constant="20" id="GKX-Aw-zgw"/>
                             <constraint firstItem="wQr-Z6-caj" firstAttribute="leading" secondItem="A0e-Wd-Vzq" secondAttribute="leading" constant="20" id="Ru7-rk-VFN"/>
+                            <constraint firstItem="wQr-Z6-caj" firstAttribute="height" secondItem="MKK-Xg-LBy" secondAttribute="height" id="T2s-lW-1lh"/>
                             <constraint firstItem="A0e-Wd-Vzq" firstAttribute="bottom" secondItem="wQr-Z6-caj" secondAttribute="bottom" constant="20" id="iEA-y1-zs1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A0e-Wd-Vzq"/>
                     </view>
                     <connections>
                         <outlet property="floaty" destination="wQr-Z6-caj" id="pfh-dD-3Bb"/>
+                        <outlet property="readyButton" destination="MKK-Xg-LBy" id="p8O-Rk-Zhg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtZ-3V-EGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="-188"/>
+            <point key="canvasLocation" x="231" y="-188"/>
+        </scene>
+        <!--Lv1 View Controller-->
+        <scene sceneID="Wcu-dY-Uku">
+            <objects>
+                <viewController storyboardIdentifier="Lv1ViewController" id="N5D-S2-hNa" customClass="Lv1ViewController" customModule="Englishor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3wv-XV-xSo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-VK-nd6">
+                                <rect key="frame" x="0.0" y="20" width="375" height="549.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDx-Gm-ShE" customClass="CountdownLabel" customModule="CountdownLabel">
+                                <rect key="frame" x="151.5" y="579.5" width="72.5" height="42.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sUH-Ey-T07">
+                                <rect key="frame" x="13" y="632" width="349" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sUH-Ey-T07" firstAttribute="leading" secondItem="9bi-0R-UaJ" secondAttribute="leading" constant="15" id="6pe-m2-MGE"/>
+                            <constraint firstItem="q3C-VK-nd6" firstAttribute="leading" secondItem="9bi-0R-UaJ" secondAttribute="leading" id="ILH-QA-Yll"/>
+                            <constraint firstItem="BDx-Gm-ShE" firstAttribute="centerX" secondItem="9bi-0R-UaJ" secondAttribute="centerX" id="JJ3-NZ-bZ8"/>
+                            <constraint firstItem="q3C-VK-nd6" firstAttribute="top" secondItem="9bi-0R-UaJ" secondAttribute="top" id="KlQ-87-dPi"/>
+                            <constraint firstItem="9bi-0R-UaJ" firstAttribute="bottom" secondItem="sUH-Ey-T07" secondAttribute="bottom" constant="5" id="Xp6-4i-gdn"/>
+                            <constraint firstItem="sUH-Ey-T07" firstAttribute="top" secondItem="BDx-Gm-ShE" secondAttribute="bottom" constant="10" id="cHC-tG-VUq"/>
+                            <constraint firstItem="9bi-0R-UaJ" firstAttribute="trailing" secondItem="sUH-Ey-T07" secondAttribute="trailing" constant="15" id="eXJ-ug-3TC"/>
+                            <constraint firstItem="9bi-0R-UaJ" firstAttribute="trailing" secondItem="q3C-VK-nd6" secondAttribute="trailing" id="n4D-h0-VPK"/>
+                            <constraint firstItem="BDx-Gm-ShE" firstAttribute="top" secondItem="q3C-VK-nd6" secondAttribute="bottom" constant="10" id="tu0-Sc-OYb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9bi-0R-UaJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="countDownLabel" destination="BDx-Gm-ShE" id="aNf-XW-ZDo"/>
+                        <outlet property="slider" destination="sUH-Ey-T07" id="7nT-gZ-roz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ci3-D1-k3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="-188.45577211394306"/>
+        </scene>
+        <!--Lv2 View Controller-->
+        <scene sceneID="ing-Fw-sO4">
+            <objects>
+                <viewController storyboardIdentifier="Lv2ViewController" id="4Iu-Bz-SMW" customClass="Lv2ViewController" customModule="Englishor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9RY-x2-RgX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="19g-d2-UeB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjL-iK-meP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1545" y="-188"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="txD-ds-f4q">

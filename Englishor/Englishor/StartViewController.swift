@@ -8,13 +8,16 @@
 
 import UIKit
 import Floaty
+import SwiftyButton
 
 class StartViewController: UIViewController {
 
     @IBOutlet weak var floaty: Floaty!
+    @IBOutlet weak var readyButton: PressableButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         floaty.addItem("Change topic",
                        icon: UIImage(named: "Food")!,
                        titlePosition: .right,
@@ -36,5 +39,11 @@ class StartViewController: UIViewController {
                         
                         self.floaty.close()
         })
+        setupPressableButton(color: .green, shadow: .lightGray, button: readyButton)
+    }
+    
+    @IBAction func clickReady(_ sender: PressableButton) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv1ViewController") as? Lv1ViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

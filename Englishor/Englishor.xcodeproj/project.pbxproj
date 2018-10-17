@@ -16,6 +16,10 @@
 		08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */; };
 		08B70FDA2174DE4000649682 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70FD92174DE4000649682 /* Topic.swift */; };
 		781D99E9462EF381DFA9C263 /* Pods_Englishor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */; };
+		B60D75C92176CB5600C2167B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75C82176CB5600C2167B /* Global.swift */; };
+		B60D75CB2176D50800C2167B /* Lv1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75CA2176D50800C2167B /* Lv1ViewController.swift */; };
+		B60D75CD2176DFFE00C2167B /* fire.gif in Resources */ = {isa = PBXBuildFile; fileRef = B60D75CC2176DFFE00C2167B /* fire.gif */; };
+		B60D75CF2176EFA200C2167B /* Lv2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		08B70FD92174DE4000649682 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		7C20E9C79B6AD13CDAA56398 /* Pods-Englishor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.release.xcconfig"; sourceTree = "<group>"; };
 		A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Englishor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60D75C82176CB5600C2167B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		B60D75CA2176D50800C2167B /* Lv1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv1ViewController.swift; sourceTree = "<group>"; };
+		B60D75CC2176DFFE00C2167B /* fire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fire.gif; sourceTree = "<group>"; };
+		B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,10 @@
 				08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */,
 				086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */,
 				086ABA8821763F9800F5FE57 /* StartViewController.swift */,
+				B60D75C82176CB5600C2167B /* Global.swift */,
+				B60D75CA2176D50800C2167B /* Lv1ViewController.swift */,
+				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
+				B60D75CC2176DFFE00C2167B /* fire.gif */,
 			);
 			path = Englishor;
 			sourceTree = "<group>";
@@ -159,6 +171,7 @@
 			files = (
 				08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */,
 				08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */,
+				B60D75CD2176DFFE00C2167B /* fire.gif in Resources */,
 				08AFD7E5216F92C50096800C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,9 +192,8 @@
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
-				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
-				"${BUILT_PRODUCTS_DIR}/TVButton/TVButton.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -191,9 +203,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TVButton.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -227,9 +238,12 @@
 			files = (
 				086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */,
 				08B70FDA2174DE4000649682 /* Topic.swift in Sources */,
+				B60D75C92176CB5600C2167B /* Global.swift in Sources */,
 				086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */,
 				08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */,
+				B60D75CF2176EFA200C2167B /* Lv2ViewController.swift in Sources */,
 				08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */,
+				B60D75CB2176D50800C2167B /* Lv1ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
