@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */; };
 		086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA8821763F9800F5FE57 /* StartViewController.swift */; };
+		088B558D217784A60061FF63 /* DoAnDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 088B558C217784A60061FF63 /* DoAnDB.db */; };
 		08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFD7DF216F92C50096800C /* AppDelegate.swift */; };
 		08AFD7E5216F92C50096800C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AFD7E3216F92C50096800C /* Main.storyboard */; };
 		08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08AFD7E6216F92C70096800C /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		071703A5270288483044973E /* Pods-Englishor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.debug.xcconfig"; sourceTree = "<group>"; };
 		086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDifficultyViewController.swift; sourceTree = "<group>"; };
 		086ABA8821763F9800F5FE57 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		088B558C217784A60061FF63 /* DoAnDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = DoAnDB.db; sourceTree = "<group>"; };
 		08AFD7DC216F92C50096800C /* Englishor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Englishor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AFD7DF216F92C50096800C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08AFD7E4216F92C50096800C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				B60D75CA2176D50800C2167B /* Lv1ViewController.swift */,
 				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
 				B60D75CC2176DFFE00C2167B /* fire.gif */,
+				088B558C217784A60061FF63 /* DoAnDB.db */,
 			);
 			path = Englishor;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */,
+				088B558D217784A60061FF63 /* DoAnDB.db in Resources */,
 				08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */,
 				B60D75CD2176DFFE00C2167B /* fire.gif in Resources */,
 				08AFD7E5216F92C50096800C /* Main.storyboard in Resources */,
