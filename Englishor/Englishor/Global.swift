@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 import SwiftyButton
 
-func setupPressableButton(color: UIColor, shadow: UIColor, button: PressableButton) {
-    button.colors = .init(button: color, shadow: shadow)
-    button.shadowHeight = 10
-    button.cornerRadius = 10
-    button.depth = 0.5
-}
+    let globalFont = UIFont(name: "Chalkboard SE", size: 20)!
+
+    func setupPressableButton(color: UIColor, shadow: UIColor, button: PressableButton) {
+        button.colors = .init(button: color, shadow: shadow)
+        button.shadowHeight = 10
+        button.cornerRadius = 10
+        button.depth = 0.5
+    }

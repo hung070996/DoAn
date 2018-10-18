@@ -175,6 +175,21 @@
             </objects>
             <point key="canvasLocation" x="231" y="-188"/>
         </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="Vox-ww-Fac">
+            <objects>
+                <viewController storyboardIdentifier="ChartViewController" id="Rg3-Kw-YRw" customClass="ChartViewController" customModule="Englishor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R9N-Gx-stU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="b6u-Vu-xH4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ljP-N4-gFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="229.59999999999999" y="482.60869565217394"/>
+        </scene>
         <!--Lv1 View Controller-->
         <scene sceneID="Wcu-dY-Uku">
             <objects>

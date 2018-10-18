@@ -36,9 +36,11 @@ class StartViewController: UIViewController {
                        icon: UIImage(named: "Sport")!,
                        titlePosition: .right,
                        handler: { [unowned self] item in
-                        
+                        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChartViewController") as? ChartViewController
+                        self.navigationController?.pushViewController(vc!, animated: true)
                         self.floaty.close()
         })
+
         setupPressableButton(color: .green, shadow: .lightGray, button: readyButton)
     }
     

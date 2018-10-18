@@ -14,4 +14,5 @@ pod 'ButtonWheel'
 pod 'SwiftyButton'
 pod 'Floaty'
 pod 'SDWebImage'
+pod 'SwiftCharts'
 end
