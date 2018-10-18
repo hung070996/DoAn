@@ -26,6 +26,7 @@ class ChooseDifficultyViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
             guard let `self` = self else { return }
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "StartViewController") as? StartViewController
+            Phase.shared.difficulty = Difficulty(rawValue: sender.tag)
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }

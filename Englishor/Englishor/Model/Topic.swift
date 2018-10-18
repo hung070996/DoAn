@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum Topic: Int {
-    case animal = 0, school, food, home, sport, color
+    case animal = 1, school, food, home, sport, color
     
     var name: String {
         switch self {

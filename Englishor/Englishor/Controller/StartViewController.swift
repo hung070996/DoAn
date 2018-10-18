@@ -22,14 +22,24 @@ class StartViewController: UIViewController {
                        icon: UIImage(named: "Food")!,
                        titlePosition: .right,
                        handler: { [unowned self] item in
-                        
+                        for controller in self.navigationController!.viewControllers as Array {
+                            if controller.isKind(of: ChooseTopicViewController.self) {
+                                self.navigationController!.popToViewController(controller, animated: true)
+                                break
+                            }
+                        }
                         self.floaty.close()
         })
         floaty.addItem("Change difficulty",
                        icon: UIImage(named: "Home")!,
                        titlePosition: .right,
                        handler: { [unowned self] item in
-                        
+                        for controller in self.navigationController!.viewControllers as Array {
+                            if controller.isKind(of: ChooseDifficultyViewController.self) {
+                                self.navigationController!.popToViewController(controller, animated: true)
+                                break
+                            }
+                        }
                         self.floaty.close()
         })
         floaty.addItem("Analytics",

@@ -22,6 +22,14 @@
 		B60D75CF2176EFA200C2167B /* Lv2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */; };
 		B60D75D121770E2D00C2167B /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75D021770E2D00C2167B /* ChartViewController.swift */; };
 		B60D75D32177130700C2167B /* ExamplesDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75D22177130700C2167B /* ExamplesDefaults.swift */; };
+		B60D75D62178294100C2167B /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75D52178294100C2167B /* Word.swift */; };
+		B60D75DC21782F0500C2167B /* Lv1Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75DA21782F0500C2167B /* Lv1Cell.swift */; };
+		B60D75DD21782F0500C2167B /* Lv1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60D75DB21782F0500C2167B /* Lv1Cell.xib */; };
+		B60D75DF2178328E00C2167B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B60D75DE2178328E00C2167B /* libsqlite3.0.tbd */; };
+		B60D75E12178371000C2167B /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75E02178371000C2167B /* Difficulty.swift */; };
+		B60D75E321785C9400C2167B /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75E221785C9400C2167B /* Phase.swift */; };
+		B60D75E62178759100C2167B /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60D75E52178759100C2167B /* NavigationView.xib */; };
+		B60D75E821788B9B00C2167B /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75E721788B9B00C2167B /* NavigationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +52,14 @@
 		B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv2ViewController.swift; sourceTree = "<group>"; };
 		B60D75D021770E2D00C2167B /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		B60D75D22177130700C2167B /* ExamplesDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesDefaults.swift; sourceTree = "<group>"; };
+		B60D75D52178294100C2167B /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		B60D75DA21782F0500C2167B /* Lv1Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv1Cell.swift; sourceTree = "<group>"; };
+		B60D75DB21782F0500C2167B /* Lv1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Lv1Cell.xib; sourceTree = "<group>"; };
+		B60D75DE2178328E00C2167B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		B60D75E02178371000C2167B /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		B60D75E221785C9400C2167B /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
+		B60D75E52178759100C2167B /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
+		B60D75E721788B9B00C2167B /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60D75DF2178328E00C2167B /* libsqlite3.0.tbd in Frameworks */,
 				781D99E9462EF381DFA9C263 /* Pods_Englishor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,22 +96,16 @@
 		08AFD7DE216F92C50096800C /* Englishor */ = {
 			isa = PBXGroup;
 			children = (
-				08AFD7DF216F92C50096800C /* AppDelegate.swift */,
-				08B70FD92174DE4000649682 /* Topic.swift */,
-				08AFD7E3216F92C50096800C /* Main.storyboard */,
+				B60D75E42178757300C2167B /* NavigationView */,
 				08AFD7E6216F92C70096800C /* Assets.xcassets */,
+				B60D75D921782ED600C2167B /* CustomCell */,
+				B60D75D821782EB000C2167B /* Supporting */,
+				B60D75D721782E8300C2167B /* Controller */,
+				B60D75D42178292E00C2167B /* Model */,
+				08AFD7DF216F92C50096800C /* AppDelegate.swift */,
+				08AFD7E3216F92C50096800C /* Main.storyboard */,
 				08AFD7E8216F92C70096800C /* LaunchScreen.storyboard */,
 				08AFD7EB216F92C70096800C /* Info.plist */,
-				08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */,
-				086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */,
-				086ABA8821763F9800F5FE57 /* StartViewController.swift */,
-				B60D75C82176CB5600C2167B /* Global.swift */,
-				B60D75CA2176D50800C2167B /* Lv1ViewController.swift */,
-				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
-				B60D75D021770E2D00C2167B /* ChartViewController.swift */,
-				B60D75D22177130700C2167B /* ExamplesDefaults.swift */,
-				B60D75CC2176DFFE00C2167B /* fire.gif */,
-				088B558C217784A60061FF63 /* DoAnDB.db */,
 			);
 			path = Englishor;
 			sourceTree = "<group>";
@@ -102,6 +113,7 @@
 		0F834F16EA8777E98B25D81B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B60D75DE2178328E00C2167B /* libsqlite3.0.tbd */,
 				A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */,
 			);
 			name = Frameworks;
@@ -114,6 +126,58 @@
 				7C20E9C79B6AD13CDAA56398 /* Pods-Englishor.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B60D75D42178292E00C2167B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				08B70FD92174DE4000649682 /* Topic.swift */,
+				B60D75D52178294100C2167B /* Word.swift */,
+				B60D75E02178371000C2167B /* Difficulty.swift */,
+				B60D75E221785C9400C2167B /* Phase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B60D75D721782E8300C2167B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */,
+				086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */,
+				086ABA8821763F9800F5FE57 /* StartViewController.swift */,
+				B60D75CA2176D50800C2167B /* Lv1ViewController.swift */,
+				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
+				B60D75D021770E2D00C2167B /* ChartViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B60D75D821782EB000C2167B /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				B60D75C82176CB5600C2167B /* Global.swift */,
+				B60D75D22177130700C2167B /* ExamplesDefaults.swift */,
+				088B558C217784A60061FF63 /* DoAnDB.db */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		B60D75D921782ED600C2167B /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				B60D75DA21782F0500C2167B /* Lv1Cell.swift */,
+				B60D75DB21782F0500C2167B /* Lv1Cell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		B60D75E42178757300C2167B /* NavigationView */ = {
+			isa = PBXGroup;
+			children = (
+				B60D75E52178759100C2167B /* NavigationView.xib */,
+				B60D75E721788B9B00C2167B /* NavigationView.swift */,
+			);
+			path = NavigationView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +240,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60D75DD21782F0500C2167B /* Lv1Cell.xib in Resources */,
 				08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */,
+				B60D75E62178759100C2167B /* NavigationView.xib in Resources */,
 				088B558D217784A60061FF63 /* DoAnDB.db in Resources */,
 				08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */,
 				08AFD7E5216F92C50096800C /* Main.storyboard in Resources */,
@@ -200,6 +266,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
 			);
@@ -212,6 +279,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
 			);
@@ -251,10 +319,15 @@
 				B60D75C92176CB5600C2167B /* Global.swift in Sources */,
 				086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */,
 				08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */,
+				B60D75D62178294100C2167B /* Word.swift in Sources */,
+				B60D75E821788B9B00C2167B /* NavigationView.swift in Sources */,
 				B60D75D121770E2D00C2167B /* ChartViewController.swift in Sources */,
+				B60D75DC21782F0500C2167B /* Lv1Cell.swift in Sources */,
+				B60D75E321785C9400C2167B /* Phase.swift in Sources */,
 				B60D75CF2176EFA200C2167B /* Lv2ViewController.swift in Sources */,
 				08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */,
 				B60D75CB2176D50800C2167B /* Lv1ViewController.swift in Sources */,
+				B60D75E12178371000C2167B /* Difficulty.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

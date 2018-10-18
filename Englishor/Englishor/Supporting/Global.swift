@@ -18,3 +18,16 @@ import SwiftyButton
         button.cornerRadius = 10
         button.depth = 0.5
     }
+
+    func getRandom<T>(in array: [T], quantity: Int) -> [T] {
+        var result = [T]()
+        var temp = array
+        if quantity <= array.count {
+            for _ in 0..<quantity {
+                let random = Int.random(in: 0..<temp.count)
+                result.append(temp[random])
+                temp.remove(at: random)
+            }
+        }
+        return result
+    }

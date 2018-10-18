@@ -43,6 +43,11 @@ class ChooseTopicViewController: UIViewController {
 extension ChooseTopicViewController: ButtonWheelDelegate {
     func didTapButtonWheelAtName(name: String) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChooseDifficultyViewController") as? ChooseDifficultyViewController
+        for topic in topics {
+            if topic.name == name {
+                Phase.shared.topic = topic
+            }
+        }
         navigationController?.pushViewController(vc!, animated: true)
     }
 }

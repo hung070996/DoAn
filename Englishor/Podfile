@@ -15,4 +15,5 @@ pod 'SwiftyButton'
 pod 'Floaty'
 pod 'SDWebImage'
 pod 'SwiftCharts'
+pod 'SQLite.swift'
 end
