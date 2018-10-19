@@ -10,6 +10,8 @@ import UIKit
 import CountdownLabel
 import SDWebImage
 import SQLite
+import AVFoundation
+import AMPopTip
 
 class Lv1ViewController: UIViewController {
     
@@ -17,12 +19,13 @@ class Lv1ViewController: UIViewController {
     @IBOutlet weak var countDownLabel: CountdownLabel!
     @IBOutlet weak var slider: UISlider!
     
-    private var timeCountdown: Double = 30
+    private var timeCountdown: Double = 3
     var words = [Word]()
     var wordTable: Table!
     var db : Connection!
     var id, idTopic : Expression<Int>!
     var word, meaning : Expression<String>!
+    let speechSynthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,28 +35,29 @@ class Lv1ViewController: UIViewController {
 //        slider.setThumbImage(UIImage.sd_animatedGIF(with: gifData), for: .normal)
         countDownLabel.setCountDownTime(minutes: timeCountdown)
         countDownLabel.timeFormat = "ss"
+        countDownLabel.animationType = .Burn
         tableView.register(cellType: Lv1Cell.self)
         loadTable()
+        
+    }
+    
+    func speechAndText(text: String) {
+        let speechUtterance = AVSpeechUtterance(string: text)
+        speechSynthesizer.speak(speechUtterance)
     }
     
     func getData() {
-        do {
-            db = try Connection("/Users/do.tien.hung/Desktop/DoAn/DoAn/Englishor/Englishor/Supporting/DoAnDB.db")
-            wordTable = Table("Word")
-            id = Expression<Int>("id")
-            idTopic = Expression<Int>("idTopic")
-            word = Expression<String>("word")
-            meaning = Expression<String>("meaning")
-        } catch {
-            
-        }
+        wordTable = Table("Word")
+        id = Expression<Int>("id")
+        idTopic = Expression<Int>("idTopic")
+        word = Expression<String>("word")
+        meaning = Expression<String>("meaning")
     }
     
     func loadTable() {
         do {
-            words = [Word]()
             let filter = wordTable.filter(idTopic == Phase.shared.topic?.rawValue ?? 0)
-            for w in try db.prepare(filter) {
+            for w in try DatabaseManager.shared.connection!.prepare(filter) {
                 let aWord = Word(id: Int(w[id]), word: w[word], meaning: w[meaning])
                 words.append(aWord)
             }
@@ -85,10 +89,23 @@ extension Lv1ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: Lv1Cell = tableView.dequeueReusableCell(for: indexPath)
         cell.label.text = words[indexPath.row].word
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+}
+
+extension Lv1ViewController: Lv1CellDelegate {
+    func clickLoud(cell: Lv1Cell, frameButton: CGRect) {
+        guard let index = tableView.indexPath(for: cell) else {
+            return
+        }
+        speechAndText(text: words[index.row].word)
+        let popTip = PopTip()
+        popTip.shouldDismissOnTap = true
+        popTip.show(text: words[index.row].meaning, direction: .left, maxWidth: 200, in: cell.contentView, from: frameButton, duration: 3)
     }
 }

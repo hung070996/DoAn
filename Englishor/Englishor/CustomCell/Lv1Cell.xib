@@ -31,12 +31,22 @@
                             <constraint firstAttribute="width" constant="50" id="kmU-2i-kv6"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wad-fC-93v">
+                        <rect key="frame" x="268" y="0.0" width="70" height="99.5"/>
+                        <connections>
+                            <action selector="clickLoud:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="So7-in-iD2"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Wad-fC-93v" firstAttribute="centerX" secondItem="diN-Lh-n0i" secondAttribute="centerX" id="3V1-Mk-8d1"/>
+                    <constraint firstItem="Wad-fC-93v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="L5E-f3-Ajg"/>
                     <constraint firstItem="A6O-oW-NIW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="RlK-Jk-2rT"/>
                     <constraint firstItem="A6O-oW-NIW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RyK-sQ-3Bs"/>
+                    <constraint firstItem="Wad-fC-93v" firstAttribute="centerY" secondItem="diN-Lh-n0i" secondAttribute="centerY" id="ShH-4h-hLY"/>
                     <constraint firstAttribute="trailing" secondItem="diN-Lh-n0i" secondAttribute="trailing" constant="10" id="Zio-VK-eWe"/>
                     <constraint firstItem="diN-Lh-n0i" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cy2-xy-wgc"/>
+                    <constraint firstAttribute="trailing" secondItem="Wad-fC-93v" secondAttribute="trailing" id="pjJ-1p-VkT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
