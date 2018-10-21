@@ -17,6 +17,7 @@ PODS:
   - SQLite.swift/standard (0.11.5)
   - SwiftCharts (0.6.3)
   - SwiftyButton (0.8.2)
+  - "UITextField+Shake (1.2.1)"
 
 DEPENDENCIES:
   - AMPopTip
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - SQLite.swift
   - SwiftCharts
   - SwiftyButton
+  - "UITextField+Shake"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -42,6 +44,7 @@ SPEC REPOS:
     - SQLite.swift
     - SwiftCharts
     - SwiftyButton
+    - "UITextField+Shake"
 
 SPEC CHECKSUMS:
   AMPopTip: 871ae0570b68fe396e714922b3f7d8ed6a36bb71
@@ -54,7 +57,8 @@ SPEC CHECKSUMS:
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SwiftCharts: 1535b5e228702af2c9c4d60c2a408f2f0f579fa8
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
+  "UITextField+Shake": 298ac5a0f239d731bdab999b19b628c956ca0ac3
 
-PODFILE CHECKSUM: eebcaf0ec33af1767e3241d20a48174a7f7c08ba
+PODFILE CHECKSUM: f21be23ccfa31776b52486e1a6f61f5966d85056
 
 COCOAPODS: 1.5.3

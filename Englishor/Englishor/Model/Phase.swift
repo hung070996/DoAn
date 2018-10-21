@@ -13,7 +13,7 @@ class Phase {
     static let shared = Phase()
     
     var topic: Topic?
-    var difficulty: Difficulty?
+    var difficulty: Difficulty!
     var pointLv1: Int?
     var pointLv2: Int?
     var pointLv3: Int?

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */; };
 		086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA8821763F9800F5FE57 /* StartViewController.swift */; };
+		08838DA3217B23B0005D238D /* a.gif in Resources */ = {isa = PBXBuildFile; fileRef = 08838DA2217B23B0005D238D /* a.gif */; };
+		08838DA5217B257D005D238D /* burn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 08838DA4217B257D005D238D /* burn.gif */; };
+		08838DA7217B2C23005D238D /* AnswerLv1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08838DA6217B2C23005D238D /* AnswerLv1ViewController.swift */; };
+		08838DAA217B2C9F005D238D /* CountdownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08838DA9217B2C9F005D238D /* CountdownView.xib */; };
+		08838DAC217B2D23005D238D /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08838DAB217B2D22005D238D /* CountdownView.swift */; };
 		088B558D217784A60061FF63 /* DoAnDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 088B558C217784A60061FF63 /* DoAnDB.db */; };
 		08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFD7DF216F92C50096800C /* AppDelegate.swift */; };
 		08AFD7E5216F92C50096800C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AFD7E3216F92C50096800C /* Main.storyboard */; };
@@ -42,6 +47,11 @@
 		071703A5270288483044973E /* Pods-Englishor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.debug.xcconfig"; sourceTree = "<group>"; };
 		086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDifficultyViewController.swift; sourceTree = "<group>"; };
 		086ABA8821763F9800F5FE57 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		08838DA2217B23B0005D238D /* a.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = a.gif; sourceTree = "<group>"; };
+		08838DA4217B257D005D238D /* burn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = burn.gif; sourceTree = "<group>"; };
+		08838DA6217B2C23005D238D /* AnswerLv1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerLv1ViewController.swift; sourceTree = "<group>"; };
+		08838DA9217B2C9F005D238D /* CountdownView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownView.xib; sourceTree = "<group>"; };
+		08838DAB217B2D22005D238D /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		088B558C217784A60061FF63 /* DoAnDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = DoAnDB.db; sourceTree = "<group>"; };
 		08AFD7DC216F92C50096800C /* Englishor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Englishor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AFD7DF216F92C50096800C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08838DA8217B2C58005D238D /* CountdownView */ = {
+			isa = PBXGroup;
+			children = (
+				08838DA9217B2C9F005D238D /* CountdownView.xib */,
+				08838DAB217B2D22005D238D /* CountdownView.swift */,
+			);
+			path = CountdownView;
+			sourceTree = "<group>";
+		};
 		08AFD7D3216F92C50096800C = {
 			isa = PBXGroup;
 			children = (
@@ -108,8 +127,9 @@
 		08AFD7DE216F92C50096800C /* Englishor */ = {
 			isa = PBXGroup;
 			children = (
-				B60D75E42178757300C2167B /* NavigationView */,
 				08AFD7E6216F92C70096800C /* Assets.xcassets */,
+				08838DA8217B2C58005D238D /* CountdownView */,
+				B60D75E42178757300C2167B /* NavigationView */,
 				B60D75D921782ED600C2167B /* CustomCell */,
 				B60D75D821782EB000C2167B /* Supporting */,
 				B60D75D721782E8300C2167B /* Controller */,
@@ -161,6 +181,7 @@
 				086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */,
 				086ABA8821763F9800F5FE57 /* StartViewController.swift */,
 				B60D75CA2176D50800C2167B /* Lv1ViewController.swift */,
+				08838DA6217B2C23005D238D /* AnswerLv1ViewController.swift */,
 				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
 				B60BD4E52179CAC70044046C /* Lv3ViewController.swift */,
 				B60D75D021770E2D00C2167B /* ChartViewController.swift */,
@@ -194,6 +215,8 @@
 			children = (
 				B60D75E52178759100C2167B /* NavigationView.xib */,
 				B60D75E721788B9B00C2167B /* NavigationView.swift */,
+				08838DA2217B23B0005D238D /* a.gif */,
+				08838DA4217B257D005D238D /* burn.gif */,
 			);
 			path = NavigationView;
 			sourceTree = "<group>";
@@ -260,10 +283,13 @@
 			files = (
 				B60D75DD21782F0500C2167B /* Lv1Cell.xib in Resources */,
 				08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */,
+				08838DAA217B2C9F005D238D /* CountdownView.xib in Resources */,
+				08838DA3217B23B0005D238D /* a.gif in Resources */,
 				B60D75E62178759100C2167B /* NavigationView.xib in Resources */,
 				B60BD4E22179C61D0044046C /* Lv2Cell.xib in Resources */,
 				088B558D217784A60061FF63 /* DoAnDB.db in Resources */,
 				08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */,
+				08838DA5217B257D005D238D /* burn.gif in Resources */,
 				08AFD7E5216F92C50096800C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +314,7 @@
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyButton/SwiftyButton.framework",
+				"${BUILT_PRODUCTS_DIR}/UITextField+Shake/UITextField_Shake.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -301,6 +328,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextField_Shake.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -332,6 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08838DAC217B2D23005D238D /* CountdownView.swift in Sources */,
 				086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */,
 				08B70FDA2174DE4000649682 /* Topic.swift in Sources */,
 				B60D75D32177130700C2167B /* ExamplesDefaults.swift in Sources */,
@@ -345,6 +374,7 @@
 				B60D75E821788B9B00C2167B /* NavigationView.swift in Sources */,
 				B60BD4DA2179C21F0044046C /* QuestionLv2.swift in Sources */,
 				B60D75D121770E2D00C2167B /* ChartViewController.swift in Sources */,
+				08838DA7217B2C23005D238D /* AnswerLv1ViewController.swift in Sources */,
 				B60D75DC21782F0500C2167B /* Lv1Cell.swift in Sources */,
 				B60BD4E62179CAC70044046C /* Lv3ViewController.swift in Sources */,
 				B60D75E321785C9400C2167B /* Phase.swift in Sources */,

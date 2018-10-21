@@ -15,6 +15,7 @@ class NavigationView: UIView, NibOwnerLoadable {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.loadNibContent()
+        
     }
 
     @IBAction func clickBack(_ sender: Any) {

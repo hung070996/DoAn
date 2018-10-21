@@ -16,4 +16,5 @@ pod 'Floaty'
 pod 'SDWebImage'
 pod 'SwiftCharts'
 pod 'SQLite.swift'
+pod 'UITextField+Shake'
 end

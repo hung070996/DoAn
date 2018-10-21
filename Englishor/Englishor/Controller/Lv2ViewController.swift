@@ -51,6 +51,7 @@ class Lv2ViewController: UIViewController {
     }
     
     func pushToLv3() {
+        Phase.shared.pointLv2 = Int(totalPoint)
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv3ViewController") as? Lv3ViewController
         navigationController?.pushViewController(vc!, animated: true)
     }

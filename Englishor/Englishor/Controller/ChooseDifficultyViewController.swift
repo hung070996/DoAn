@@ -32,5 +32,4 @@ class ChooseDifficultyViewController: UIViewController {
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }
-    
 }

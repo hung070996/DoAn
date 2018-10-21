@@ -16,10 +16,9 @@ import AMPopTip
 class Lv1ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var countDownLabel: CountdownLabel!
-    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var countdownView: CountdownView!
     
-    private var timeCountdown: Double = 3
+    private var timeCountdown: Double = 5
     var words = [Word]()
     var wordTable: Table!
     var db : Connection!
@@ -30,12 +29,13 @@ class Lv1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-//        let filePath = Bundle.main.path(forResource: "fire", ofType: "gif")
+//        let filePath = Bundle.main.path(forResource: "burn", ofType: "gif")
 //        let gifData = NSData(contentsOfFile: filePath ?? "") as Data?
 //        slider.setThumbImage(UIImage.sd_animatedGIF(with: gifData), for: .normal)
-        countDownLabel.setCountDownTime(minutes: timeCountdown)
-        countDownLabel.timeFormat = "ss"
-        countDownLabel.animationType = .Burn
+//        slider.setThumbImage(UIImage(named: "fire"), for: .normal)
+//        slider.trackRect(forBounds: CGRect(x: 0, y: -100, width: 300, height: 300))
+        
+
         tableView.register(cellType: Lv1Cell.self)
         loadTable()
         
@@ -70,12 +70,9 @@ class Lv1ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        countDownLabel.start()
-        UIView.animate(withDuration: timeCountdown, animations: { [weak self] in
-            guard let `self` = self else { return }
-            self.slider.setValue(0, animated: true)
-        }) { _ in
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv2ViewController") as? Lv2ViewController
+        countdownView.start(time: timeCountdown) { [unowned self] in
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AnswerLv1ViewController") as? AnswerLv1ViewController
+            vc!.words = self.words
             self.navigationController?.pushViewController(vc!, animated: true)
         }
     }

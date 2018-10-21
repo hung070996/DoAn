@@ -14,7 +14,8 @@ class DatabaseManager {
     
     var connection : Connection? {
         do {
-            return try Connection("/Users/do.tien.hung/Desktop/DoAn/DoAn/Englishor/Englishor/Supporting/DoAnDB.db")
+            let path = Bundle.main.path(forResource: "DoAnDB", ofType: "db")!
+            return try Connection(path)
         } catch {
             return nil
         }

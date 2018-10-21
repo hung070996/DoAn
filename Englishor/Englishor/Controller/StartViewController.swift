@@ -55,7 +55,10 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func clickReady(_ sender: PressableButton) {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv1ViewController") as? Lv1ViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
+            guard let `self` = self else { return }
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv1ViewController") as? Lv1ViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
 }
