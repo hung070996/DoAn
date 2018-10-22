@@ -12,6 +12,7 @@ import SwiftyButton
 import Speech
 import AVFoundation
 import AMPopTip
+import UITextField_Shake
 
 class AnswerLv1ViewController: UIViewController {
 
@@ -23,16 +24,15 @@ class AnswerLv1ViewController: UIViewController {
     @IBOutlet weak var wordLabel: LTMorphingLabel!
     @IBOutlet weak var countdownView: CountdownView!
     
-    let speechSynthesizer = AVSpeechSynthesizer()
+    private let speechSynthesizer = AVSpeechSynthesizer()
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-    
-    var timeCountdown: Double = 100
+    private var timeCountdown: Double = 3
     var words = [Word]()
-    var index = -1
-    var total: Double = 0
+    private var index = -1
+    private var total: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,22 +45,37 @@ class AnswerLv1ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         countdownView.start(time: timeCountdown) { [unowned self] in
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv2ViewController") as? Lv2ViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
+            if self.index < self.words.count {
+                self.pushToLv2()
+            }
         }
+    }
+    
+    func pushToLv2() {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv2ViewController") as? Lv2ViewController
+        navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    func trueAnswer() {
+        total += 100 / 2 / Double(Phase.shared.difficulty.numberOfQuestion)
     }
     
     func nextWord() {
         index += 1
-        wordLabel.text = words[index].word
-        true1.isHidden = true
-        true2.isHidden = true
-        self.meaningTextfield.isEnabled = false
-        self.meaningTextfield.text = ""
+        if index < words.count {
+            wordLabel.text = words[index].word
+            true1.isHidden = true
+            true2.isHidden = true
+            self.meaningTextfield.isEnabled = false
+            self.meaningTextfield.text = ""
+        } else {
+            pushToLv2()
+        }
     }
     
     @IBAction func clickLoud(_ sender: UIButton) {
         if audioEngine.isRunning {
+            microphoneButton.setImage(UIImage(named: "micro"), for: .normal)
             audioEngine.stop()
             recognitionRequest?.endAudio()
         } else {
@@ -69,7 +84,9 @@ class AnswerLv1ViewController: UIViewController {
     }
     
     func startRecording() {
-        
+        let filePath = Bundle.main.path(forResource: "micro_active", ofType: "gif")
+        let gifData = NSData(contentsOfFile: filePath ?? "") as Data?
+        microphoneButton.setImage(UIImage.sd_animatedGIF(with: gifData), for: .normal)
         if recognitionTask != nil {
             recognitionTask?.cancel()
             recognitionTask = nil
@@ -97,13 +114,15 @@ class AnswerLv1ViewController: UIViewController {
             .recognitionTask(with: recognitionRequest,
                              resultHandler: { [weak self] (result, error) in
                                 guard let `self` = self, let result = result else { return }
+                                self.microphoneButton.setImage(UIImage(named: "micro"), for: .normal)
                                 self.audioEngine.stop()
                                 recognitionRequest.endAudio()
                                 if result.isFinal {
                                     let resultText = result.bestTranscription.formattedString
-                                    if self.compare(resultText, self.words[self.index].word) {
+                                    if compare(resultText, self.words[self.index].word) {
                                         self.true1.isHidden = false
                                         self.meaningTextfield.isEnabled = true
+                                        self.trueAnswer()
                                     } else {
                                         let popTip = PopTip()
                                         popTip.shouldDismissOnTap = true
@@ -113,12 +132,13 @@ class AnswerLv1ViewController: UIViewController {
                                                     in: self.view,
                                                     from: self.microphoneButton.frame,
                                                     duration: 2)
-                                        inputNode.removeTap(onBus: 0)
-                                        self.startRecording()
+//                                        inputNode.removeTap(onBus: 0)
+//                                        self.startRecording()
                                     }
                                 }
             
                                 if error != nil || result.isFinal {
+                                    self.microphoneButton.setImage(UIImage(named: "micro"), for: .normal)
                                     self.audioEngine.stop()
                                     inputNode.removeTap(onBus: 0)
                                     self.recognitionRequest = nil
@@ -143,16 +163,15 @@ class AnswerLv1ViewController: UIViewController {
 
     @IBAction func clickSubmit(_ sender: Any) {
         if compare(meaningTextfield.text ?? "", words[index].meaning) {
+            trueAnswer()
             true2.isHidden = false
-//            results[self.index].1 = true
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
                 guard let `self` = self else { return }
                 self.nextWord()
             }
+        } else {
+            meaningTextfield.shake()
         }
     }
-    
-    func compare(_ string1: String, _ string2: String) -> Bool {
-        return string1.lowercased() == string2.lowercased()
-    }
 }
+

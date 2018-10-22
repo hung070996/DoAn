@@ -7,44 +7,30 @@
 //
 
 import UIKit
-import CountdownLabel
 import SQLite
 
 class Lv2ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var countDownLabel: CountdownLabel!
-    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var countdownView: CountdownView!
     
-    private var timeCountdown: Double = 30
-    var questions = [QuestionLv2]()
-    var currentQuestion: QuestionLv2!
-    var questionTable: Table!
-    var db : Connection!
-    var id, idTopic : Expression<Int>!
-    var question, a, b, c, d, answer : Expression<String>!
-    var totalPoint: Double = 0
-    var index = -1
+    private var timeCountdown: Double = 5
+    private var questions = [QuestionLv2]()
+    private var currentQuestion: QuestionLv2!
+    private var totalPoint: Double = 0
+    private var index = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
         tableView.register(cellType: Lv2Cell.self)
         loadTable()
-        countDownLabel.setCountDownTime(minutes: timeCountdown)
-        countDownLabel.timeFormat = "ss"
-        countDownLabel.animationType = .Burn
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        countDownLabel.start()
-        UIView.animate(withDuration: timeCountdown, animations: { [weak self] in
-            guard let `self` = self else { return }
-            self.slider.setValue(0, animated: true)
-        }) { _ in
-            if self.index < Phase.shared.difficulty?.numberOfQuestion ?? 0 {
+        countdownView.start(time: timeCountdown) { [unowned self] in
+            if self.index < self.questions.count {
                 self.pushToLv3()
             }
         }
@@ -56,21 +42,21 @@ class Lv2ViewController: UIViewController {
         navigationController?.pushViewController(vc!, animated: true)
     }
     
-    func getData() {
-        questionTable = Table("QuestionLv2")
-        id = Expression<Int>("id")
-        idTopic = Expression<Int>("idTopic")
-        question = Expression<String>("question")
-        a = Expression<String>("a")
-        b = Expression<String>("b")
-        c = Expression<String>("c")
-        d = Expression<String>("d")
-        answer = Expression<String>("answer")
-    }
-    
     func loadTable() {
+        
+        let questionTable = Table("QuestionLv2")
+        let id = Expression<Int>("id")
+        let idTopic = Expression<Int>("idTopic")
+        let question = Expression<String>("question")
+        let a = Expression<String>("a")
+        let b = Expression<String>("b")
+        let c = Expression<String>("c")
+        let d = Expression<String>("d")
+        let answer = Expression<String>("answer")
+        
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        
         do {
             let filter = questionTable.filter(idTopic == Phase.shared.topic?.rawValue ?? 0)
             for q in try DatabaseManager.shared.connection!.prepare(filter) {
@@ -91,7 +77,7 @@ class Lv2ViewController: UIViewController {
     
     func nextQuestion() {
         index += 1
-        if index < Phase.shared.difficulty?.numberOfQuestion ?? 0 {
+        if index < self.questions.count {
             currentQuestion = questions[index]
             questionLabel.text = currentQuestion.question
             tableView.reloadData()

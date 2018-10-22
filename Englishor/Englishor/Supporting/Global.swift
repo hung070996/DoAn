@@ -12,8 +12,10 @@ import SwiftyButton
 
     let globalFont = UIFont(name: "Chalkboard SE", size: 20)!
 
-    func setupPressableButton(color: UIColor, shadow: UIColor, button: PressableButton) {
-        button.colors = .init(button: color, shadow: shadow)
+    func setupPressableButton(color: UIColor?, shadow: UIColor?, button: PressableButton) {
+        if let color = color, let shadow = shadow {
+            button.colors = .init(button: color, shadow: shadow)
+        }
         button.shadowHeight = 10
         button.cornerRadius = 10
         button.depth = 0.5
@@ -30,4 +32,8 @@ import SwiftyButton
             }
         }
         return result
+    }
+
+    func compare(_ string1: String, _ string2: String) -> Bool {
+        return string1.lowercased() == string2.lowercased()
     }

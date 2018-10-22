@@ -23,12 +23,13 @@ class CountdownView: UIView, NibOwnerLoadable {
     }
     
     func start(time: Double, complete: @escaping () -> ()) {
+        label.timeFormat = time < 60 ? "ss" : "mm:ss"
         label.setCountDownTime(minutes: time)
         label.start()
-        UIView.animate(withDuration: time, animations: { [weak self] in
+        UIView.animate(withDuration: time, delay: 0, options: .curveLinear, animations: { [weak self] in
             guard let `self` = self else { return }
             self.slider.setValue(0, animated: true)
-        }) { (_) in
+        }) { _ in
             complete()
         }
     }

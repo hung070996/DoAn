@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CountdownLabel
 import SDWebImage
 import SQLite
 import AVFoundation
@@ -18,24 +17,18 @@ class Lv1ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countdownView: CountdownView!
     
-    private var timeCountdown: Double = 5
-    var words = [Word]()
-    var wordTable: Table!
-    var db : Connection!
-    var id, idTopic : Expression<Int>!
-    var word, meaning : Expression<String>!
-    let speechSynthesizer = AVSpeechSynthesizer()
+    private var timeCountdown: Double = 3
+    private var words = [Word]()
+    private let speechSynthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
 //        let filePath = Bundle.main.path(forResource: "burn", ofType: "gif")
 //        let gifData = NSData(contentsOfFile: filePath ?? "") as Data?
 //        slider.setThumbImage(UIImage.sd_animatedGIF(with: gifData), for: .normal)
 //        slider.setThumbImage(UIImage(named: "fire"), for: .normal)
 //        slider.trackRect(forBounds: CGRect(x: 0, y: -100, width: 300, height: 300))
         
-
         tableView.register(cellType: Lv1Cell.self)
         loadTable()
         
@@ -46,16 +39,14 @@ class Lv1ViewController: UIViewController {
         speechSynthesizer.speak(speechUtterance)
     }
     
-    func getData() {
-        wordTable = Table("Word")
-        id = Expression<Int>("id")
-        idTopic = Expression<Int>("idTopic")
-        word = Expression<String>("word")
-        meaning = Expression<String>("meaning")
-    }
-    
     func loadTable() {
         do {
+            let wordTable = Table("Word")
+            let id = Expression<Int>("id")
+            let idTopic = Expression<Int>("idTopic")
+            let word = Expression<String>("word")
+            let meaning = Expression<String>("meaning")
+            
             let filter = wordTable.filter(idTopic == Phase.shared.topic?.rawValue ?? 0)
             for w in try DatabaseManager.shared.connection!.prepare(filter) {
                 let aWord = Word(id: Int(w[id]), word: w[word], meaning: w[meaning])

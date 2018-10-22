@@ -41,6 +41,13 @@
 		B60D75E321785C9400C2167B /* Phase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75E221785C9400C2167B /* Phase.swift */; };
 		B60D75E62178759100C2167B /* NavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60D75E52178759100C2167B /* NavigationView.xib */; };
 		B60D75E821788B9B00C2167B /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60D75E721788B9B00C2167B /* NavigationView.swift */; };
+		B6771AAE217DC81C00AE377E /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6771AAC217DC81C00AE377E /* RightChatCell.swift */; };
+		B6771AAF217DC81C00AE377E /* RightChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6771AAD217DC81C00AE377E /* RightChatCell.xib */; };
+		B67CB4A2217D828100FB605D /* QuestionLv3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A1217D828100FB605D /* QuestionLv3.swift */; };
+		B67CB4A4217D83B200FB605D /* Lv4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A3217D83B200FB605D /* Lv4ViewController.swift */; };
+		B67CB4A6217DB36A00FB605D /* micro_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = B67CB4A5217DB36A00FB605D /* micro_active.gif */; };
+		B67CB4A9217DBC2300FB605D /* LeftChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A7217DBC2300FB605D /* LeftChatCell.swift */; };
+		B67CB4AA217DBC2300FB605D /* LeftChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67CB4A8217DBC2300FB605D /* LeftChatCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +89,13 @@
 		B60D75E221785C9400C2167B /* Phase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phase.swift; sourceTree = "<group>"; };
 		B60D75E52178759100C2167B /* NavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationView.xib; sourceTree = "<group>"; };
 		B60D75E721788B9B00C2167B /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		B6771AAC217DC81C00AE377E /* RightChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
+		B6771AAD217DC81C00AE377E /* RightChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightChatCell.xib; sourceTree = "<group>"; };
+		B67CB4A1217D828100FB605D /* QuestionLv3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLv3.swift; sourceTree = "<group>"; };
+		B67CB4A3217D83B200FB605D /* Lv4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv4ViewController.swift; sourceTree = "<group>"; };
+		B67CB4A5217DB36A00FB605D /* micro_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = micro_active.gif; sourceTree = "<group>"; };
+		B67CB4A7217DBC2300FB605D /* LeftChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftChatCell.swift; sourceTree = "<group>"; };
+		B67CB4A8217DBC2300FB605D /* LeftChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftChatCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +182,7 @@
 				B60D75E02178371000C2167B /* Difficulty.swift */,
 				B60D75E221785C9400C2167B /* Phase.swift */,
 				B60BD4D92179C21F0044046C /* QuestionLv2.swift */,
+				B67CB4A1217D828100FB605D /* QuestionLv3.swift */,
 				B60BD4DB2179C3380044046C /* DatabaseManager.swift */,
 				B60BD4DD2179C5380044046C /* Answer.swift */,
 			);
@@ -184,6 +199,7 @@
 				08838DA6217B2C23005D238D /* AnswerLv1ViewController.swift */,
 				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
 				B60BD4E52179CAC70044046C /* Lv3ViewController.swift */,
+				B67CB4A3217D83B200FB605D /* Lv4ViewController.swift */,
 				B60D75D021770E2D00C2167B /* ChartViewController.swift */,
 			);
 			path = Controller;
@@ -195,6 +211,7 @@
 				B60D75C82176CB5600C2167B /* Global.swift */,
 				B60D75D22177130700C2167B /* ExamplesDefaults.swift */,
 				088B558C217784A60061FF63 /* DoAnDB.db */,
+				B67CB4A5217DB36A00FB605D /* micro_active.gif */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -206,6 +223,10 @@
 				B60D75DB21782F0500C2167B /* Lv1Cell.xib */,
 				B60BD4DF2179C61D0044046C /* Lv2Cell.swift */,
 				B60BD4E02179C61D0044046C /* Lv2Cell.xib */,
+				B67CB4A7217DBC2300FB605D /* LeftChatCell.swift */,
+				B67CB4A8217DBC2300FB605D /* LeftChatCell.xib */,
+				B6771AAC217DC81C00AE377E /* RightChatCell.swift */,
+				B6771AAD217DC81C00AE377E /* RightChatCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -284,12 +305,15 @@
 				B60D75DD21782F0500C2167B /* Lv1Cell.xib in Resources */,
 				08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */,
 				08838DAA217B2C9F005D238D /* CountdownView.xib in Resources */,
+				B67CB4A6217DB36A00FB605D /* micro_active.gif in Resources */,
+				B67CB4AA217DBC2300FB605D /* LeftChatCell.xib in Resources */,
 				08838DA3217B23B0005D238D /* a.gif in Resources */,
 				B60D75E62178759100C2167B /* NavigationView.xib in Resources */,
 				B60BD4E22179C61D0044046C /* Lv2Cell.xib in Resources */,
 				088B558D217784A60061FF63 /* DoAnDB.db in Resources */,
 				08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */,
 				08838DA5217B257D005D238D /* burn.gif in Resources */,
+				B6771AAF217DC81C00AE377E /* RightChatCell.xib in Resources */,
 				08AFD7E5216F92C50096800C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,17 +386,21 @@
 			files = (
 				08838DAC217B2D23005D238D /* CountdownView.swift in Sources */,
 				086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */,
+				B67CB4A2217D828100FB605D /* QuestionLv3.swift in Sources */,
 				08B70FDA2174DE4000649682 /* Topic.swift in Sources */,
 				B60D75D32177130700C2167B /* ExamplesDefaults.swift in Sources */,
 				B60BD4DE2179C5380044046C /* Answer.swift in Sources */,
 				B60D75C92176CB5600C2167B /* Global.swift in Sources */,
+				B67CB4A4217D83B200FB605D /* Lv4ViewController.swift in Sources */,
 				B60BD4DC2179C3380044046C /* DatabaseManager.swift in Sources */,
 				B60BD4E12179C61D0044046C /* Lv2Cell.swift in Sources */,
 				086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */,
 				08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */,
 				B60D75D62178294100C2167B /* Word.swift in Sources */,
 				B60D75E821788B9B00C2167B /* NavigationView.swift in Sources */,
+				B6771AAE217DC81C00AE377E /* RightChatCell.swift in Sources */,
 				B60BD4DA2179C21F0044046C /* QuestionLv2.swift in Sources */,
+				B67CB4A9217DBC2300FB605D /* LeftChatCell.swift in Sources */,
 				B60D75D121770E2D00C2167B /* ChartViewController.swift in Sources */,
 				08838DA7217B2C23005D238D /* AnswerLv1ViewController.swift in Sources */,
 				B60D75DC21782F0500C2167B /* Lv1Cell.swift in Sources */,
