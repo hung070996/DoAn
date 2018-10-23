@@ -23,12 +23,6 @@ class Lv1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let filePath = Bundle.main.path(forResource: "burn", ofType: "gif")
-//        let gifData = NSData(contentsOfFile: filePath ?? "") as Data?
-//        slider.setThumbImage(UIImage.sd_animatedGIF(with: gifData), for: .normal)
-//        slider.setThumbImage(UIImage(named: "fire"), for: .normal)
-//        slider.trackRect(forBounds: CGRect(x: 0, y: -100, width: 300, height: 300))
-        
         tableView.register(cellType: Lv1Cell.self)
         loadTable()
         

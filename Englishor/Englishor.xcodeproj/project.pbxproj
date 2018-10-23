@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */; };
 		086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086ABA8821763F9800F5FE57 /* StartViewController.swift */; };
+		087CD1FF217F6C4400D5BA90 /* MySlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087CD1FE217F6C4400D5BA90 /* MySlider.swift */; };
+		087CD205217F71E500D5BA90 /* fire.gif in Resources */ = {isa = PBXBuildFile; fileRef = 087CD204217F71E500D5BA90 /* fire.gif */; };
 		08838DA3217B23B0005D238D /* a.gif in Resources */ = {isa = PBXBuildFile; fileRef = 08838DA2217B23B0005D238D /* a.gif */; };
 		08838DA5217B257D005D238D /* burn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 08838DA4217B257D005D238D /* burn.gif */; };
 		08838DA7217B2C23005D238D /* AnswerLv1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08838DA6217B2C23005D238D /* AnswerLv1ViewController.swift */; };
@@ -56,6 +58,8 @@
 		071703A5270288483044973E /* Pods-Englishor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.debug.xcconfig"; sourceTree = "<group>"; };
 		086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDifficultyViewController.swift; sourceTree = "<group>"; };
 		086ABA8821763F9800F5FE57 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		087CD1FE217F6C4400D5BA90 /* MySlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySlider.swift; sourceTree = "<group>"; };
+		087CD204217F71E500D5BA90 /* fire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fire.gif; sourceTree = "<group>"; };
 		08838DA2217B23B0005D238D /* a.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = a.gif; sourceTree = "<group>"; };
 		08838DA4217B257D005D238D /* burn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = burn.gif; sourceTree = "<group>"; };
 		08838DA6217B2C23005D238D /* AnswerLv1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerLv1ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			children = (
 				08838DA9217B2C9F005D238D /* CountdownView.xib */,
 				08838DAB217B2D22005D238D /* CountdownView.swift */,
+				087CD1FE217F6C4400D5BA90 /* MySlider.swift */,
 			);
 			path = CountdownView;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				B60D75D22177130700C2167B /* ExamplesDefaults.swift */,
 				088B558C217784A60061FF63 /* DoAnDB.db */,
 				B67CB4A5217DB36A00FB605D /* micro_active.gif */,
+				087CD204217F71E500D5BA90 /* fire.gif */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 				08AFD7E7216F92C70096800C /* Assets.xcassets in Resources */,
 				08838DA5217B257D005D238D /* burn.gif in Resources */,
 				B6771AAF217DC81C00AE377E /* RightChatCell.xib in Resources */,
+				087CD205217F71E500D5BA90 /* fire.gif in Resources */,
 				08AFD7E5216F92C50096800C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +407,7 @@
 				B67CB4A4217D83B200FB605D /* Lv4ViewController.swift in Sources */,
 				B60BD4DC2179C3380044046C /* DatabaseManager.swift in Sources */,
 				B60BD4E12179C61D0044046C /* Lv2Cell.swift in Sources */,
+				087CD1FF217F6C4400D5BA90 /* MySlider.swift in Sources */,
 				086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */,
 				08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */,
 				B6067617217EC2250099BA43 /* Lv5ViewController.swift in Sources */,

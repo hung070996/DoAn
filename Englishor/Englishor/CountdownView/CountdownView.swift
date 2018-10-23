@@ -20,6 +20,9 @@ class CountdownView: UIView, NibOwnerLoadable {
         self.loadNibContent()
         label.timeFormat = "ss"
         label.animationType = .Burn
+        let filePath = Bundle.main.path(forResource: "fire", ofType: "gif")
+        let gifData = NSData(contentsOfFile: filePath ?? "") as Data?
+        slider.setThumbImage(UIImage.sd_animatedGIF(with: gifData), for: .normal)
     }
     
     func start(time: Double, complete: @escaping () -> ()) {
