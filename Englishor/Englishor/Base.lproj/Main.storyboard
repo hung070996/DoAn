@@ -28,6 +28,15 @@
                                     <constraint firstAttribute="width" secondItem="RvY-E4-oAA" secondAttribute="height" id="SOk-Wl-FoG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-3J-zCW" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="135.5" y="291.5" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Csd-3J-zCW" secondAttribute="height" id="NUk-Fd-D0v"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="clickRotate:" destination="WXw-Ta-SFg" eventType="touchUpInside" id="sUZ-RQ-q2r"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your favorite topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOR-Tv-4fr">
                                 <rect key="frame" x="20" y="120" width="335" height="37.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="26"/>
@@ -38,19 +47,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoW-JQ-Y0D" customClass="LTMorphingLabel" customModule="CountdownLabel">
+                                <rect key="frame" x="187.5" y="533" width="0.0" height="104"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JOR-Tv-4fr" firstAttribute="leading" secondItem="LAn-0m-93T" secondAttribute="leading" constant="20" id="0lb-TB-ojR"/>
+                            <constraint firstItem="LoW-JQ-Y0D" firstAttribute="centerX" secondItem="LAn-0m-93T" secondAttribute="centerX" id="4PW-S6-dGM"/>
                             <constraint firstItem="JOR-Tv-4fr" firstAttribute="centerX" secondItem="LAn-0m-93T" secondAttribute="centerX" id="82q-j6-age"/>
+                            <constraint firstItem="Csd-3J-zCW" firstAttribute="centerX" secondItem="RvY-E4-oAA" secondAttribute="centerX" id="AJC-FA-dDg"/>
                             <constraint firstItem="UUI-Ej-hc3" firstAttribute="leading" secondItem="LAn-0m-93T" secondAttribute="leading" id="Aws-e7-cDJ"/>
                             <constraint firstItem="JOR-Tv-4fr" firstAttribute="top" secondItem="UUI-Ej-hc3" secondAttribute="bottom" constant="50" id="BVp-JA-o2u"/>
+                            <constraint firstItem="LAn-0m-93T" firstAttribute="bottom" secondItem="LoW-JQ-Y0D" secondAttribute="bottom" constant="30" id="BbK-Np-rVd"/>
+                            <constraint firstItem="LoW-JQ-Y0D" firstAttribute="top" secondItem="CKs-UF-nwW" secondAttribute="bottom" constant="30" id="C0v-b6-Ecq"/>
                             <constraint firstItem="CKs-UF-nwW" firstAttribute="centerY" secondItem="RvY-E4-oAA" secondAttribute="centerY" id="Q6z-bK-8cr"/>
+                            <constraint firstItem="Csd-3J-zCW" firstAttribute="centerY" secondItem="RvY-E4-oAA" secondAttribute="centerY" id="TC8-uO-27q"/>
                             <constraint firstItem="RvY-E4-oAA" firstAttribute="centerX" secondItem="LAn-0m-93T" secondAttribute="centerX" id="XSx-no-TVD"/>
                             <constraint firstItem="LAn-0m-93T" firstAttribute="trailing" secondItem="UUI-Ej-hc3" secondAttribute="trailing" id="aHx-pw-0Vp"/>
                             <constraint firstItem="RvY-E4-oAA" firstAttribute="width" secondItem="G7m-P1-l2j" secondAttribute="width" multiplier="5/6" id="cKs-zS-iS2"/>
                             <constraint firstItem="CKs-UF-nwW" firstAttribute="top" secondItem="RvY-E4-oAA" secondAttribute="top" constant="-3" id="dKr-Sd-I4j"/>
                             <constraint firstItem="CKs-UF-nwW" firstAttribute="centerX" secondItem="RvY-E4-oAA" secondAttribute="centerX" id="jdI-YJ-j3E"/>
+                            <constraint firstItem="Csd-3J-zCW" firstAttribute="width" secondItem="RvY-E4-oAA" secondAttribute="width" multiplier="1/3" id="kx5-5n-uxH"/>
                             <constraint firstItem="CKs-UF-nwW" firstAttribute="leading" secondItem="RvY-E4-oAA" secondAttribute="leading" constant="-3" id="ljf-wN-Mr1"/>
                             <constraint firstItem="UUI-Ej-hc3" firstAttribute="height" secondItem="G7m-P1-l2j" secondAttribute="height" multiplier="70/667" id="qTi-15-3il"/>
                             <constraint firstItem="RvY-E4-oAA" firstAttribute="top" secondItem="JOR-Tv-4fr" secondAttribute="bottom" constant="30" id="qqm-XU-F7t"/>
@@ -62,8 +83,10 @@
                     <navigationItem key="navigationItem" id="NN2-MQ-zQS"/>
                     <connections>
                         <outlet property="navigationView" destination="UUI-Ej-hc3" id="Ryj-76-l60"/>
+                        <outlet property="rotateButton" destination="Csd-3J-zCW" id="j0e-Sf-o6F"/>
                         <outlet property="subviewTopic" destination="CKs-UF-nwW" id="RyY-CP-Pba"/>
                         <outlet property="topicButton" destination="RvY-E4-oAA" id="1Fh-Aq-8oU"/>
+                        <outlet property="topicLabel" destination="LoW-JQ-Y0D" id="0id-1q-QwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqF-La-YWD" userLabel="First Responder" sceneMemberID="firstResponder"/>

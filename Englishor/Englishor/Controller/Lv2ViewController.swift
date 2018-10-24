@@ -132,20 +132,3 @@ extension Lv2ViewController: NavigationViewDelegate {
         pushToLv3()
     }
 }
-
-extension String {
-    func toIndexAnswer() -> Int {
-        switch self {
-        case "a":
-            return 0
-        case "b":
-            return 1
-        case "c":
-            return 2
-        case "d":
-            return 3
-        default:
-            return -1
-        }
-    }
-}

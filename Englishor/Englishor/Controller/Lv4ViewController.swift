@@ -57,6 +57,4 @@ extension Lv4ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
     }
-    
-    
 }
