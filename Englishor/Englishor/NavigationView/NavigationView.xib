@@ -22,8 +22,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaM-aa-XLn">
-                    <rect key="frame" x="157.5" y="12.5" width="60.5" height="35.5"/>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                    <rect key="frame" x="156" y="12.5" width="63.5" height="35.5"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -49,24 +49,14 @@
                         <action selector="clickNext:" destination="-1" eventType="touchUpInside" id="0QQ-fD-o5o"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Z0-PB-UKJ">
-                    <rect key="frame" x="0.0" y="58" width="375" height="2"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="2" id="BiY-lv-87E"/>
-                    </constraints>
-                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.95220732708016365" blue="0.72942151535902311" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="BaM-aa-XLn" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="2om-bV-cKX"/>
-                <constraint firstAttribute="bottom" secondItem="0Z0-PB-UKJ" secondAttribute="bottom" id="3av-2b-zU4"/>
                 <constraint firstItem="BaM-aa-XLn" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="7jn-4Y-7C5"/>
-                <constraint firstAttribute="trailing" secondItem="0Z0-PB-UKJ" secondAttribute="trailing" id="BjZ-6X-Bsz"/>
                 <constraint firstItem="KnN-E3-zln" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="D8g-0A-3L8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lLi-nN-IuL" secondAttribute="trailing" constant="15" id="Fsr-if-dmM"/>
                 <constraint firstItem="KnN-E3-zln" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="cOd-BF-nQ0"/>
-                <constraint firstItem="0Z0-PB-UKJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="eZk-xm-LfL"/>
                 <constraint firstItem="lLi-nN-IuL" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="sUx-wx-Uma"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -14,6 +14,7 @@ import AMPopTip
 
 class Lv1ViewController: UIViewController {
     
+    @IBOutlet weak var navigationView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countdownView: CountdownView!
     
@@ -25,7 +26,9 @@ class Lv1ViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(cellType: Lv1Cell.self)
         loadTable()
-        
+        navigationView.setHiddenView(nextLv: false, title: false, back: true)
+        navigationView.setTitle(title: "Lv1")
+        navigationView.delegate = self
     }
     
     func speechAndText(text: String) {
@@ -53,12 +56,16 @@ class Lv1ViewController: UIViewController {
         }
     }
     
+    func pushToAnswer() {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AnswerLv1ViewController") as? AnswerLv1ViewController
+        vc!.words = self.words
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         countdownView.start(time: timeCountdown) { [unowned self] in
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AnswerLv1ViewController") as? AnswerLv1ViewController
-            vc!.words = self.words
-            self.navigationController?.pushViewController(vc!, animated: true)
+            self.pushToAnswer()
         }
     }
 }
@@ -90,5 +97,11 @@ extension Lv1ViewController: Lv1CellDelegate {
         popTip.shouldDismissOnTap = true
         popTip.font = UIFont(name: "Chalkboard SE", size: 20)!
         popTip.show(text: words[index.row].meaning, direction: .left, maxWidth: 200, in: cell.contentView, from: frameButton, duration: 3)
+    }
+}
+
+extension Lv1ViewController: NavigationViewDelegate {
+    func clickNext() {
+        pushToAnswer()
     }
 }

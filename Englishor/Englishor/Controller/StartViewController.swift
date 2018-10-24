@@ -15,9 +15,11 @@ class StartViewController: UIViewController {
     @IBOutlet weak var floaty: Floaty!
     @IBOutlet weak var readyButton: PressableButton!
     
+    var blurEffectView = UIVisualEffectView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        floaty.fabDelegate = self
         FloatyManager.defaultInstance().font = globalFont
         
         floaty.addItem("Change topic",
@@ -56,11 +58,34 @@ class StartViewController: UIViewController {
         setupPressableButton(color: .green, shadow: .lightGray, button: readyButton)
     }
     
+    func addBlur() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(blurEffectView)
+        view.bringSubviewToFront(floaty)
+    }
+    
+    func removeBlur() {
+        blurEffectView.removeFromSuperview()
+    }
+    
     @IBAction func clickReady(_ sender: PressableButton) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
             guard let `self` = self else { return }
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv1ViewController") as? Lv1ViewController
             self.navigationController?.pushViewController(vc!, animated: true)
         }
+    }
+}
+
+extension StartViewController: FloatyDelegate {
+    func floatyWillOpen(_ floaty: Floaty) {
+        addBlur()
+    }
+    
+    func floatyWillClose(_ floaty: Floaty) {
+        removeBlur()
     }
 }
