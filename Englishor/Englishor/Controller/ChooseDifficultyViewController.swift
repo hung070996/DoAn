@@ -21,6 +21,7 @@ class ChooseDifficultyViewController: UIViewController {
         setupPressableButton(color: .orange, shadow: .lightGray, button: mediumButton)
         setupPressableButton(color: .red, shadow: .lightGray, button: hardButton)
         navigationView.setTitle(title: "Difficulty")
+        navigationView.setHiddenView(nextLv: true, title: false, back: false)
     }
     
 

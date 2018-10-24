@@ -22,10 +22,21 @@ enum Difficulty: Int {
         }
     }
     
-    var timeOfConversation: Int {
+    var timeOfLevel: (lv1: Double, answerLv1: Double, lv2: Double, lv3: Double) {
         switch self {
         case .easy:
-            return 30
+            return (lv1: 10, answerLv1: 30, lv2: 30, lv3: 60)
+        case .medium:
+            return (lv1: 90, answerLv1: 150, lv2: 90, lv3: 240)
+        case .hard:
+            return (lv1: 120, answerLv1: 180, lv2: 120, lv3: 300)
+        }
+    }
+    
+    var timeOfConversation: Double {
+        switch self {
+        case .easy:
+            return 10
         case .medium:
             return 60
         case .hard:

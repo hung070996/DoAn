@@ -19,6 +19,8 @@ import SwiftyButton
         button.shadowHeight = 10
         button.cornerRadius = 10
         button.depth = 0.5
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.layer.borderWidth = 2
     }
 
     func getRandom<T>(in array: [T], quantity: Int) -> [T] {
@@ -36,4 +38,14 @@ import SwiftyButton
 
     func compare(_ string1: String, _ string2: String) -> Bool {
         return string1.lowercased() == string2.lowercased()
+    }
+
+    func getDataAnalytic() -> [Phase] {
+        if UserDefaults.standard.object(forKey: "data") == nil {
+            return []
+        } else {
+            let decoded  = UserDefaults.standard.object(forKey: "data") as! Data
+            let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Phase]
+            return decodedData
+        }
     }

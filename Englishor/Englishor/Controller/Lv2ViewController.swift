@@ -11,20 +11,25 @@ import SQLite
 
 class Lv2ViewController: UIViewController {
     
+    @IBOutlet weak var navigationView: NavigationView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var countdownView: CountdownView!
     
-    private var timeCountdown: Double = 5
+    private var timeCountdown: Double = Phase.shared.difficulty.timeOfLevel.lv2
     private var questions = [QuestionLv2]()
     private var currentQuestion: QuestionLv2!
     private var totalPoint: Double = 0
     private var index = -1
+    private var isPushed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(cellType: Lv2Cell.self)
         loadTable()
+        navigationView.setHiddenView(nextLv: false, title: false, back: true)
+        navigationView.setTitle(title: "Lv2")
+        navigationView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,9 +42,12 @@ class Lv2ViewController: UIViewController {
     }
     
     func pushToLv3() {
-        Phase.shared.pointLv2 = Int(totalPoint)
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv3ViewController") as? Lv3ViewController
-        navigationController?.pushViewController(vc!, animated: true)
+        if !isPushed {
+            Phase.shared.pointLv2 = Int(totalPoint)
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv3ViewController") as? Lv3ViewController
+            navigationController?.pushViewController(vc!, animated: true)
+            isPushed = true
+        }
     }
     
     func loadTable() {
@@ -116,6 +124,12 @@ extension Lv2ViewController: UITableViewDelegate, UITableViewDataSource {
         print(totalPoint)
         nextQuestion()
         
+    }
+}
+
+extension Lv2ViewController: NavigationViewDelegate {
+    func clickNext() {
+        pushToLv3()
     }
 }
 

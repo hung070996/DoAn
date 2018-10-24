@@ -16,6 +16,8 @@ import UITextField_Shake
 
 class AnswerLv1ViewController: UIViewController {
 
+    @IBOutlet weak var nextWordButton: PressableButton!
+    @IBOutlet weak var navigationView: NavigationView!
     @IBOutlet weak var true2: UIImageView!
     @IBOutlet weak var true1: UIImageView!
     @IBOutlet weak var microphoneButton: UIButton!
@@ -29,22 +31,29 @@ class AnswerLv1ViewController: UIViewController {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
-    private var timeCountdown: Double = 3
+    private var timeCountdown: Double = Phase.shared.difficulty.timeOfLevel.answerLv1
     var words = [Word]()
     private var index = -1
+    private var isPushed = false
     private var total: Double = 0
+    private var currentResult = (false, false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         words = getRandom(in: words, quantity: words.count)
         wordLabel.morphingEffect = .burn
         setupPressableButton(color: .red, shadow: .lightGray, button: submitButton)
+        setupPressableButton(color: nil, shadow: nil, button: nextWordButton)
+        navigationView.setHiddenView(nextLv: false, title: false, back: true)
+        navigationView.setTitle(title: "Lv1")
+        navigationView.delegate = self
         nextWord()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        countdownView.start(time: timeCountdown) { [unowned self] in
+        countdownView.start(time: timeCountdown) { [weak self] in
+            guard let `self` = self else { return }
             if self.index < self.words.count {
                 self.pushToLv2()
             }
@@ -52,8 +61,12 @@ class AnswerLv1ViewController: UIViewController {
     }
     
     func pushToLv2() {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv2ViewController") as? Lv2ViewController
-        navigationController?.pushViewController(vc!, animated: true)
+        if !isPushed {
+            Phase.shared.pointLv1 = Int(total)
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv2ViewController") as? Lv2ViewController
+            navigationController?.pushViewController(vc!, animated: true)
+            isPushed = true
+        }
     }
     
     func trueAnswer() {
@@ -66,7 +79,7 @@ class AnswerLv1ViewController: UIViewController {
             wordLabel.text = words[index].word
             true1.isHidden = true
             true2.isHidden = true
-            self.meaningTextfield.isEnabled = false
+            currentResult = (false, false)
             self.meaningTextfield.text = ""
         } else {
             pushToLv2()
@@ -121,8 +134,14 @@ class AnswerLv1ViewController: UIViewController {
                                     let resultText = result.bestTranscription.formattedString
                                     if compare(resultText, self.words[self.index].word) {
                                         self.true1.isHidden = false
-                                        self.meaningTextfield.isEnabled = true
                                         self.trueAnswer()
+                                        self.currentResult.0 = true
+                                        if self.currentResult == (true, true) {
+                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
+                                                guard let `self` = self else { return }
+                                                self.nextWord()
+                                            }
+                                        }
                                     } else {
                                         let popTip = PopTip()
                                         popTip.shouldDismissOnTap = true
@@ -132,8 +151,6 @@ class AnswerLv1ViewController: UIViewController {
                                                     in: self.view,
                                                     from: self.microphoneButton.frame,
                                                     duration: 2)
-//                                        inputNode.removeTap(onBus: 0)
-//                                        self.startRecording()
                                     }
                                 }
             
@@ -161,17 +178,39 @@ class AnswerLv1ViewController: UIViewController {
         }
     }
 
+    @IBAction func clickNextWord(_ sender: PressableButton) {
+        nextWord()
+    }
+    
     @IBAction func clickSubmit(_ sender: Any) {
+        view.endEditing(true)
         if compare(meaningTextfield.text ?? "", words[index].meaning) {
             trueAnswer()
-            true2.isHidden = false
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
-                guard let `self` = self else { return }
-                self.nextWord()
+            self.currentResult.1 = true
+            if self.currentResult == (true, true) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [weak self] in
+                    guard let `self` = self else { return }
+                    self.nextWord()
+                }
             }
+            true2.isHidden = false
+
         } else {
             meaningTextfield.shake()
         }
+    }
+}
+
+extension AnswerLv1ViewController: NavigationViewDelegate {
+    func clickNext() {
+        pushToLv2()
+    }
+}
+
+extension AnswerLv1ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
 }
 

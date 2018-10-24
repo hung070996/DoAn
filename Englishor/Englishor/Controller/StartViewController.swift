@@ -18,8 +18,10 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FloatyManager.defaultInstance().font = globalFont
+        
         floaty.addItem("Change topic",
-                       icon: UIImage(named: "Food")!,
+                       icon: Phase.shared.topic?.icon,
                        titlePosition: .right,
                        handler: { [unowned self] item in
                         for controller in self.navigationController!.viewControllers as Array {
@@ -43,7 +45,7 @@ class StartViewController: UIViewController {
                         self.floaty.close()
         })
         floaty.addItem("Analytics",
-                       icon: UIImage(named: "Sport")!,
+                       icon: UIImage(named: "analytic")!,
                        titlePosition: .right,
                        handler: { [unowned self] item in
                         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChartViewController") as? ChartViewController

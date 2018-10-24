@@ -22,6 +22,8 @@
 		08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */; };
 		08B70FDA2174DE4000649682 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70FD92174DE4000649682 /* Topic.swift */; };
 		781D99E9462EF381DFA9C263 /* Pods_Englishor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */; };
+		B6067617217EC2250099BA43 /* Lv5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6067616217EC2250099BA43 /* Lv5ViewController.swift */; };
+		B6067619217EC3530099BA43 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6067618217EC3530099BA43 /* ResultViewController.swift */; };
 		B60BD4DA2179C21F0044046C /* QuestionLv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60BD4D92179C21F0044046C /* QuestionLv2.swift */; };
 		B60BD4DC2179C3380044046C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60BD4DB2179C3380044046C /* DatabaseManager.swift */; };
 		B60BD4DE2179C5380044046C /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60BD4DD2179C5380044046C /* Answer.swift */; };
@@ -70,6 +72,8 @@
 		08B70FD92174DE4000649682 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		7C20E9C79B6AD13CDAA56398 /* Pods-Englishor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Englishor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Englishor/Pods-Englishor.release.xcconfig"; sourceTree = "<group>"; };
 		A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Englishor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6067616217EC2250099BA43 /* Lv5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv5ViewController.swift; sourceTree = "<group>"; };
+		B6067618217EC3530099BA43 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		B60BD4D92179C21F0044046C /* QuestionLv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLv2.swift; sourceTree = "<group>"; };
 		B60BD4DB2179C3380044046C /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		B60BD4DD2179C5380044046C /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				B60D75CE2176EFA200C2167B /* Lv2ViewController.swift */,
 				B60BD4E52179CAC70044046C /* Lv3ViewController.swift */,
 				B67CB4A3217D83B200FB605D /* Lv4ViewController.swift */,
+				B6067616217EC2250099BA43 /* Lv5ViewController.swift */,
+				B6067618217EC3530099BA43 /* ResultViewController.swift */,
 				B60D75D021770E2D00C2167B /* ChartViewController.swift */,
 			);
 			path = Controller;
@@ -396,6 +402,7 @@
 				B60BD4E12179C61D0044046C /* Lv2Cell.swift in Sources */,
 				086ABA87217631B900F5FE57 /* ChooseDifficultyViewController.swift in Sources */,
 				08B70FCD2174D7CE00649682 /* ChooseTopicViewController.swift in Sources */,
+				B6067617217EC2250099BA43 /* Lv5ViewController.swift in Sources */,
 				B60D75D62178294100C2167B /* Word.swift in Sources */,
 				B60D75E821788B9B00C2167B /* NavigationView.swift in Sources */,
 				B6771AAE217DC81C00AE377E /* RightChatCell.swift in Sources */,
@@ -406,6 +413,7 @@
 				B60D75DC21782F0500C2167B /* Lv1Cell.swift in Sources */,
 				B60BD4E62179CAC70044046C /* Lv3ViewController.swift in Sources */,
 				B60D75E321785C9400C2167B /* Phase.swift in Sources */,
+				B6067619217EC3530099BA43 /* ResultViewController.swift in Sources */,
 				B60D75CF2176EFA200C2167B /* Lv2ViewController.swift in Sources */,
 				08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */,
 				B60D75CB2176D50800C2167B /* Lv1ViewController.swift in Sources */,

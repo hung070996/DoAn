@@ -11,16 +11,18 @@ import SwiftyButton
 import SQLite
 
 class Lv3ViewController: UIViewController {
+    @IBOutlet weak var navigationView: NavigationView!
     @IBOutlet weak var countdownView: CountdownView!
     @IBOutlet weak var submitButton: PressableButton!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerTextview: UITextView!
     
-    private var timeCountdown: Double = 5
+    private var timeCountdown: Double = Phase.shared.difficulty.timeOfLevel.lv3
     private var questions = [QuestionLv3]()
     private var currentQuestion: QuestionLv3!
     private var totalPoint: Double = 0
     private var index = -1
+    private var isPushed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,9 @@ class Lv3ViewController: UIViewController {
         setupPressableButton(color: nil, shadow: nil, button: submitButton)
         answerTextview.layer.borderWidth = 0.5
         answerTextview.layer.borderColor = UIColor.gray.cgColor
+        navigationView.setHiddenView(nextLv: false, title: false, back: true)
+        navigationView.setTitle(title: "Lv3")
+        navigationView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,13 +80,17 @@ class Lv3ViewController: UIViewController {
     }
     
     func pushToLv4() {
-        Phase.shared.pointLv3 = Int(totalPoint)
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv4ViewController") as? Lv4ViewController
-        navigationController?.pushViewController(vc!, animated: true)
+        if !isPushed {
+            Phase.shared.pointLv3 = Int(totalPoint)
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv4ViewController") as? Lv4ViewController
+            navigationController?.pushViewController(vc!, animated: true)
+            isPushed = true
+        }
     }
     
     @IBAction func clickSubmit(_ sender: PressableButton) {
         if compare(answerTextview.text, currentQuestion.answer) {
+            totalPoint += 100 / Double(questions.count)
             nextQuestion()
         } else {
             answerTextview.shakeView()
@@ -95,6 +104,12 @@ extension Lv3ViewController: UITextViewDelegate {
             view.endEditing(true)
         }
         return true
+    }
+}
+
+extension Lv3ViewController: NavigationViewDelegate {
+    func clickNext() {
+        pushToLv4()
     }
 }
 

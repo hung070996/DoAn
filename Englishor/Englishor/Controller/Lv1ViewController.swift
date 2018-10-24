@@ -17,9 +17,9 @@ class Lv1ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var countdownView: CountdownView!
     
-    private var timeCountdown: Double = 3
+    private var timeCountdown: Double = Phase.shared.difficulty.timeOfLevel.lv1
     private var words = [Word]()
-    private let speechSynthesizer = AVSpeechSynthesizer()
+    private var speechSynthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +94,7 @@ extension Lv1ViewController: Lv1CellDelegate {
         speechAndText(text: words[index.row].word)
         let popTip = PopTip()
         popTip.shouldDismissOnTap = true
+        popTip.font = UIFont(name: "Chalkboard SE", size: 20)!
         popTip.show(text: words[index.row].meaning, direction: .left, maxWidth: 200, in: cell.contentView, from: frameButton, duration: 3)
     }
 }
