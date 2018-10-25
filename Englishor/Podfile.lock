@@ -3,6 +3,7 @@ PODS:
   - ButtonWheel (0.1.1)
   - CountdownLabel (4.0.1)
   - Floaty (4.1.0)
+  - JYRadarChart (0.4.0)
   - Kingfisher (4.10.0)
   - Reusable (4.0.3):
     - Reusable/Storyboard (= 4.0.3)
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - ButtonWheel
   - CountdownLabel (~> 4.0)
   - Floaty
+  - JYRadarChart
   - Kingfisher
   - Reusable
   - SDWebImage
@@ -38,6 +40,7 @@ SPEC REPOS:
     - ButtonWheel
     - CountdownLabel
     - Floaty
+    - JYRadarChart
     - Kingfisher
     - Reusable
     - SDWebImage
@@ -51,6 +54,7 @@ SPEC CHECKSUMS:
   ButtonWheel: 24afd7055da6548aaf5c7d40f9ea2e1b3eade706
   CountdownLabel: c9975e3f329140b5e7d1f45cd63b1300badd1712
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
+  JYRadarChart: 3e96b2696a0f3ba6a419f162edcfb5e97317cc8c
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
@@ -59,6 +63,6 @@ SPEC CHECKSUMS:
   SwiftyButton: 5b0ef314e9cf61cf8a83e456ddd1ea1f53f30598
   "UITextField+Shake": 298ac5a0f239d731bdab999b19b628c956ca0ac3
 
-PODFILE CHECKSUM: f21be23ccfa31776b52486e1a6f61f5966d85056
+PODFILE CHECKSUM: 35cc45ff1cc59c6f005df0dba76cab6662a8db0e
 
 COCOAPODS: 1.5.3

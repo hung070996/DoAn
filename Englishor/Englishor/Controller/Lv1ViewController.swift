@@ -21,6 +21,7 @@ class Lv1ViewController: UIViewController {
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfLevel.lv1
     private var words = [Word]()
     private var speechSynthesizer = AVSpeechSynthesizer()
+    private var isPushed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +58,12 @@ class Lv1ViewController: UIViewController {
     }
     
     func pushToAnswer() {
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AnswerLv1ViewController") as? AnswerLv1ViewController
-        vc!.words = self.words
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if !isPushed {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "AnswerLv1ViewController") as? AnswerLv1ViewController
+            vc!.words = self.words
+            self.navigationController?.pushViewController(vc!, animated: true)
+            isPushed = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

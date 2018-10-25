@@ -916,16 +916,43 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="h55-Id-wA2">
                                 <rect key="frame" x="0.0" y="10" width="375" height="667"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Kj-BJ-GEX" customClass="JYRadarChart">
+                                <rect key="frame" x="47" y="203" width="281" height="281"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Kj-BJ-GEX" secondAttribute="height" id="Nmn-kA-eJ1"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUw-zP-QfR" customClass="PressableButton" customModule="SwiftyButton">
+                                <rect key="frame" x="30" y="532" width="315" height="55"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="30"/>
+                                <state key="normal" title="Back to home">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickBackToHome:" destination="Nlm-2O-9sm" eventType="touchUpInside" id="uwR-Wv-htz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3Kj-BJ-GEX" firstAttribute="centerX" secondItem="fUT-6f-Qbl" secondAttribute="centerX" id="7uU-zi-oz8"/>
+                            <constraint firstItem="3Kj-BJ-GEX" firstAttribute="centerY" secondItem="fUT-6f-Qbl" secondAttribute="centerY" id="Kdw-Zj-ybQ"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="centerX" secondItem="fUT-6f-Qbl" secondAttribute="centerX" id="OTm-pp-eWr"/>
+                            <constraint firstItem="fUT-6f-Qbl" firstAttribute="bottom" secondItem="pUw-zP-QfR" secondAttribute="bottom" constant="80" id="W4V-m3-hl4"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="width" secondItem="Q08-23-Tod" secondAttribute="width" id="WNc-Sk-U4P"/>
+                            <constraint firstItem="3Kj-BJ-GEX" firstAttribute="width" secondItem="Q08-23-Tod" secondAttribute="width" multiplier="3/4" id="Yz4-24-B4K"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="height" secondItem="Q08-23-Tod" secondAttribute="height" id="e84-HH-rIg"/>
+                            <constraint firstItem="pUw-zP-QfR" firstAttribute="centerX" secondItem="h55-Id-wA2" secondAttribute="centerX" id="faf-Zv-i7F"/>
+                            <constraint firstItem="pUw-zP-QfR" firstAttribute="leading" secondItem="fUT-6f-Qbl" secondAttribute="leading" constant="30" id="t15-Fe-aiU"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="centerY" secondItem="fUT-6f-Qbl" secondAttribute="centerY" id="z8H-NZ-rzT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fUT-6f-Qbl"/>
                     </view>
+                    <connections>
+                        <outlet property="backToHomeButton" destination="pUw-zP-QfR" id="Brx-zw-CBv"/>
+                        <outlet property="chartView" destination="3Kj-BJ-GEX" id="D8h-Qi-cez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtq-c7-Lff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
