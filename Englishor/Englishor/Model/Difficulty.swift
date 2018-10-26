@@ -36,7 +36,7 @@ enum Difficulty: Int {
     var timeOfConversation: Double {
         switch self {
         case .easy:
-            return 10
+            return 30
         case .medium:
             return 60
         case .hard:

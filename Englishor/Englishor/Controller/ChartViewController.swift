@@ -80,7 +80,7 @@ class ChartViewController: UIViewController {
         let lineModel5 = ChartLineModel(chartPoints: chartPoints5, lineColor: UIColor.yellow, animDuration: 1, animDelay: 0)
         let chartPointsLineLayer = ChartPointsLineLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, lineModels: [lineModel1, lineModel2, lineModel3, lineModel4, lineModel5], useView: false)
         
-        let thumbSettings = ChartPointsLineTrackerLayerThumbSettings(thumbSize: 10, thumbBorderWidth: 5)
+        let thumbSettings = ChartPointsLineTrackerLayerThumbSettings(thumbSize: 10, thumbBorderWidth: 10)
         let trackerLayerSettings = ChartPointsLineTrackerLayerSettings(thumbSettings: thumbSettings)
         
         var currentPositionLabels: [UILabel] = []
