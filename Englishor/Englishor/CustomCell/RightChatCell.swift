@@ -20,5 +20,6 @@ class RightChatCell: UITableViewCell, NibReusable {
         boundView.layer.borderColor = UIColor.black.cgColor
         boundView.layer.cornerRadius = 5
         boundView.layer.borderWidth = 1.0
+        backgroundColor = .clear
     }
 }

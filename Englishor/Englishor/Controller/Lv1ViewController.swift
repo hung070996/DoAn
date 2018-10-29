@@ -38,6 +38,7 @@ class Lv1ViewController: UIViewController {
     }
     
     func loadTable() {
+        tableView.layer.borderWidth = 0.5
         do {
             let wordTable = Table("Word")
             let id = Expression<Int>("id")

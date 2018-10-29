@@ -16,6 +16,7 @@ class Lv4ViewController: UIViewController {
     @IBOutlet weak var countdownView: CountdownView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet weak var navigationView: NavigationView!
     
     private let speechSynthesizer = AVSpeechSynthesizer()
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
@@ -26,13 +27,23 @@ class Lv4ViewController: UIViewController {
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfConversation
     private var totalPoint: Double = 70
     private var conversation = [String]()
+    private var isPushed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configTable()
+        navigationView.setHiddenView(nextLv: false, title: false, back: true)
+        navigationView.setTitle(title: "Lv4")
+        navigationView.delegate = self
+    }
+    
+    func configTable() {
         tableView.register(cellType: LeftChatCell.self)
         tableView.register(cellType: RightChatCell.self)
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.layer.borderWidth = 0.5
+        tableView.layer.borderColor = UIColor.black.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,9 +54,12 @@ class Lv4ViewController: UIViewController {
     }
 
     func pushToLv5() {
-        Phase.shared.pointLv4 = Int(totalPoint)
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv5ViewController") as? Lv5ViewController
-        navigationController?.pushViewController(vc!, animated: true)
+        if !isPushed {
+            Phase.shared.pointLv4 = Int(totalPoint)
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lv5ViewController") as? Lv5ViewController
+            navigationController?.pushViewController(vc!, animated: true)
+            isPushed = true
+        }
     }
     
     @IBAction func clickRecord(_ sender: Any) {
@@ -158,5 +172,11 @@ extension Lv4ViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
+    }
+}
+
+extension Lv4ViewController: NavigationViewDelegate {
+    func clickNext() {
+        pushToLv5()
     }
 }

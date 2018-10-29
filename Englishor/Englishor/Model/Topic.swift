@@ -33,6 +33,27 @@ enum Topic: Int {
         return UIImage(named: name) ?? UIImage()
     }
     
+    var iconStraight: UIImage {
+        return UIImage(named: name2) ?? UIImage()
+    }
+    
+    var name2: String {
+        switch self {
+        case .animal:
+            return "animal-1"
+        case .school:
+            return "school-1"
+        case .food:
+            return "food-1"
+        case .home:
+            return "home-1"
+        case .sport:
+            return "sport-1"
+        case .color:
+            return "color-1"
+        }
+    }
+    
     var radian: CGFloat {
         let unit = CGFloat.pi / 6
         switch self {

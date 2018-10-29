@@ -48,11 +48,11 @@
 		B6118C5E2180557700B83794 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C5D2180557700B83794 /* UIImage+.swift */; };
 		B6118C60218055C600B83794 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C5F218055C600B83794 /* UIView+.swift */; };
 		B6118C62218055D400B83794 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C61218055D400B83794 /* String+.swift */; };
+		B618FD582182EE9800BD7954 /* micro_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = B618FD572182EE9700BD7954 /* micro_active.gif */; };
 		B6771AAE217DC81C00AE377E /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6771AAC217DC81C00AE377E /* RightChatCell.swift */; };
 		B6771AAF217DC81C00AE377E /* RightChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6771AAD217DC81C00AE377E /* RightChatCell.xib */; };
 		B67CB4A2217D828100FB605D /* QuestionLv3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A1217D828100FB605D /* QuestionLv3.swift */; };
 		B67CB4A4217D83B200FB605D /* Lv4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A3217D83B200FB605D /* Lv4ViewController.swift */; };
-		B67CB4A6217DB36A00FB605D /* micro_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = B67CB4A5217DB36A00FB605D /* micro_active.gif */; };
 		B67CB4A9217DBC2300FB605D /* LeftChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A7217DBC2300FB605D /* LeftChatCell.swift */; };
 		B67CB4AA217DBC2300FB605D /* LeftChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67CB4A8217DBC2300FB605D /* LeftChatCell.xib */; };
 /* End PBXBuildFile section */
@@ -103,11 +103,11 @@
 		B6118C5D2180557700B83794 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		B6118C5F218055C600B83794 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		B6118C61218055D400B83794 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		B618FD572182EE9700BD7954 /* micro_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = micro_active.gif; sourceTree = "<group>"; };
 		B6771AAC217DC81C00AE377E /* RightChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
 		B6771AAD217DC81C00AE377E /* RightChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightChatCell.xib; sourceTree = "<group>"; };
 		B67CB4A1217D828100FB605D /* QuestionLv3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLv3.swift; sourceTree = "<group>"; };
 		B67CB4A3217D83B200FB605D /* Lv4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv4ViewController.swift; sourceTree = "<group>"; };
-		B67CB4A5217DB36A00FB605D /* micro_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = micro_active.gif; sourceTree = "<group>"; };
 		B67CB4A7217DBC2300FB605D /* LeftChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftChatCell.swift; sourceTree = "<group>"; };
 		B67CB4A8217DBC2300FB605D /* LeftChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftChatCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,7 +229,7 @@
 				B60D75C82176CB5600C2167B /* Global.swift */,
 				B60D75D22177130700C2167B /* ExamplesDefaults.swift */,
 				088B558C217784A60061FF63 /* DoAnDB.db */,
-				B67CB4A5217DB36A00FB605D /* micro_active.gif */,
+				B618FD572182EE9700BD7954 /* micro_active.gif */,
 				087CD204217F71E500D5BA90 /* fire.gif */,
 			);
 			path = Supporting;
@@ -334,7 +334,7 @@
 				B60D75DD21782F0500C2167B /* Lv1Cell.xib in Resources */,
 				08AFD7EA216F92C70096800C /* LaunchScreen.storyboard in Resources */,
 				08838DAA217B2C9F005D238D /* CountdownView.xib in Resources */,
-				B67CB4A6217DB36A00FB605D /* micro_active.gif in Resources */,
+				B618FD582182EE9800BD7954 /* micro_active.gif in Resources */,
 				B67CB4AA217DBC2300FB605D /* LeftChatCell.xib in Resources */,
 				08838DA3217B23B0005D238D /* a.gif in Resources */,
 				B60D75E62178759100C2167B /* NavigationView.xib in Resources */,

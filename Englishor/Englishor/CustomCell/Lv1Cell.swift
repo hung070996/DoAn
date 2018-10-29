@@ -20,7 +20,7 @@ class Lv1Cell: UITableViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .clear
+//        backgroundColor = .clear
     }
     @IBAction func clickLoud(_ sender: UIButton) {
         delegate?.clickLoud(cell: self, frameButton: sender.frame)

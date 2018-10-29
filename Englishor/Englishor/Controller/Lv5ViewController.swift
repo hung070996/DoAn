@@ -10,14 +10,18 @@ import UIKit
 
 class Lv5ViewController: UIViewController {
 
+    @IBOutlet weak var navigationView: NavigationView!
     @IBOutlet weak var countdownView: CountdownView!
+    
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfConversation
     private var totalPoint: Double = 60
+    private var isPushed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        navigationView.setHiddenView(nextLv: false, title: false, back: true)
+        navigationView.setTitle(title: "Lv5")
+        navigationView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,18 +32,27 @@ class Lv5ViewController: UIViewController {
     }
     
     func pushToResult() {
-        Phase.shared.pointLv5 = Int(totalPoint)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
-        let date = formatter.string(from: Date())
-        Phase.shared.date = date
-        var data = getDataAnalytic()
-        if data.last?.date != date {
-            data.append(Phase.shared)
+        if !isPushed {
+            Phase.shared.pointLv5 = Int(totalPoint)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let date = formatter.string(from: Date())
+            Phase.shared.date = date
+            var data = getDataAnalytic()
+            if data.last?.date != date {
+                data.append(Phase.shared)
+            }
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: data)
+            UserDefaults.standard.set(encodedData, forKey: "data")
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
+            navigationController?.pushViewController(vc!, animated: true)
+            isPushed = true
         }
-        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: data)
-        UserDefaults.standard.set(encodedData, forKey: "data")
-        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
-        navigationController?.pushViewController(vc!, animated: true)
+    }
+}
+
+extension Lv5ViewController: NavigationViewDelegate {
+    func clickNext() {
+        pushToResult()
     }
 }

@@ -35,7 +35,7 @@ class ChooseTopicViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         rotateButton.shadowHeight = 10
-        rotateButton.cornerRadius = rotateButton.frame.size.width / 2
+        rotateButton.cornerRadius = rotateButton.frame.size.width / 2 - 5
     }
     
     func setup() {
@@ -63,12 +63,12 @@ class ChooseTopicViewController: UIViewController {
         self.rotateView(targetView: self.topicButton, count: 5, random: random)
     }
     
-    private func rotateView(targetView: UIView, count: Int, random: Int) {
-        UIView.animate(withDuration: Double(6 - count), delay: 0, options: .curveLinear, animations: {
+    private func rotateView(targetView: UIView, count: Double, random: Int) {
+        UIView.animate(withDuration: 6 - count, delay: 0, options: .curveLinear, animations: {
             targetView.transform = targetView.transform.rotated(by: CGFloat.pi)
         }) { [unowned self] finished in
-            let remain = count - 1
-            if remain > 1 {
+            let remain = count - 0.5
+            if remain > 2 {
                 self.rotateView(targetView: targetView, count: remain, random: random)
             } else {
                 self.finish(random: random)
@@ -78,7 +78,8 @@ class ChooseTopicViewController: UIViewController {
     
     func finish(random: Int) {
         if random < 4 {
-            UIView.animate(withDuration: 5, delay: 0, options: .curveEaseOut, animations: { [unowned self] in
+            let duration: Double = random == 1 ? 3 : (random == 3 ? 5 : 4)
+            UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { [unowned self] in
                 self.topicButton.transform = self.topicButton.transform.rotated(by: CGFloat.pi / 3 * CGFloat(random))
             }, completion: { [unowned self] (_) in
                 self.topicLabel.text = Topic(rawValue: random + 1)?.name
@@ -87,10 +88,11 @@ class ChooseTopicViewController: UIViewController {
                 self.pushToDifficulty(rotate: 5 * CGFloat.pi / 3 * CGFloat(random))
             })
         } else {
-            UIView.animate(withDuration: 5, delay: 0, options: .curveLinear, animations: { [unowned self] in
+            UIView.animate(withDuration: 4, delay: 0, options: .curveLinear, animations: { [unowned self] in
                 self.topicButton.transform = self.topicButton.transform.rotated(by: CGFloat.pi)
             }) { [unowned self] (_) in
-                UIView.animate(withDuration: 5, delay: 0, options: .curveEaseOut, animations: {
+                let duration: Double = random == 4 ? 4 : 5
+                UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: {
                     self.topicButton.transform = self.topicButton.transform.rotated(by: CGFloat.pi / 3 * CGFloat(random - 3))
                 }, completion: { [unowned self] (_) in
                     self.topicLabel.text = Topic(rawValue: random + 1)?.name

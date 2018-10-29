@@ -16,6 +16,7 @@ class Lv3ViewController: UIViewController {
     @IBOutlet weak var submitButton: PressableButton!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerTextview: UITextView!
+    @IBOutlet weak var nextQuestionButton: PressableButton!
     
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfLevel.lv3
     private var questions = [QuestionLv3]()
@@ -28,6 +29,7 @@ class Lv3ViewController: UIViewController {
         super.viewDidLoad()
         loadData()
         setupPressableButton(color: nil, shadow: nil, button: submitButton)
+        setupPressableButton(color: nil, shadow: nil, button: nextQuestionButton)
         answerTextview.layer.borderWidth = 0.5
         answerTextview.layer.borderColor = UIColor.gray.cgColor
         navigationView.setHiddenView(nextLv: false, title: false, back: true)

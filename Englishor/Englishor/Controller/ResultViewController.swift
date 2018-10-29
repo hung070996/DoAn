@@ -36,6 +36,7 @@ class ResultViewController: UIViewController {
         chartView.drawPoints = true
         chartView.drawStrokePoints = true
         chartView.pointsStrokeSize = 5
+        chartView.r = 150
     }
     
     @IBAction func clickBackToHome(_ sender: Any) {
