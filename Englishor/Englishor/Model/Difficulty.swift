@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Difficulty: Int {
     case easy = 0, medium, hard
@@ -20,6 +21,19 @@ enum Difficulty: Int {
         case .hard:
             return 10
         }
+    }
+    
+    var image: UIImage {
+        var string = ""
+        switch self {
+        case .easy:
+            string = "easy"
+        case .medium:
+            string = "medium"
+        case .hard:
+            string = "hard"
+        }
+        return UIImage(named: string) ?? UIImage()
     }
     
     var timeOfLevel: (lv1: Double, answerLv1: Double, lv2: Double, lv3: Double) {

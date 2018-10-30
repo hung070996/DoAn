@@ -52,7 +52,7 @@ class StartViewController: UIViewController {
                         self.floaty.close()
         })
         floaty.addItem("Change difficulty",
-                       icon: UIImage(named: "Home")!,
+                       icon: Phase.shared.difficulty.image,
                        titlePosition: .right,
                        handler: { [unowned self] item in
                         for controller in self.navigationController!.viewControllers as Array {

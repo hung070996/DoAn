@@ -10,6 +10,7 @@ import UIKit
 import ButtonWheel
 import SwiftyButton
 import CountdownLabel
+import RevealingSplashView
 
 class ChooseTopicViewController: UIViewController {
     
@@ -24,6 +25,12 @@ class ChooseTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "spin")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: UIColor(red: 252/256, green: 229/256, blue: 185/256, alpha: 1.0))
+        
+        self.view.addSubview(revealingSplashView)
+        revealingSplashView.startAnimation(){
+            print("Completed")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

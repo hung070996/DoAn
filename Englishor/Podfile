@@ -6,6 +6,7 @@ target 'Englishor' do
   use_frameworks!
 
   # Pods for Englishor
+pod 'RevealingSplashView'
 pod 'ApiAI'
 pod 'JYRadarChart'
 pod 'Reusable'
