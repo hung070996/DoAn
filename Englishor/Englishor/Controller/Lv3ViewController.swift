@@ -28,8 +28,8 @@ class Lv3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-        setupPressableButton(color: nil, shadow: nil, button: submitButton)
-        setupPressableButton(color: nil, shadow: nil, button: nextQuestionButton)
+        Utils.shared.setupPressableButton(color: nil, shadow: nil, button: submitButton)
+        Utils.shared.setupPressableButton(color: nil, shadow: nil, button: nextQuestionButton)
         answerTextview.layer.borderWidth = 0.5
         answerTextview.layer.borderColor = UIColor.gray.cgColor
         navigationView.setHiddenView(nextLv: false, title: false, back: true)
@@ -63,7 +63,7 @@ class Lv3ViewController: UIViewController {
                                             idTopic: Int(q[idTopic]))
                 questions.append(aQuestion)
             }
-            questions = getRandom(in: questions, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
+            questions = Utils.shared.getRandom(in: questions, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
         } catch {
             
         }
@@ -91,7 +91,7 @@ class Lv3ViewController: UIViewController {
     }
     
     @IBAction func clickSubmit(_ sender: PressableButton) {
-        if compare(answerTextview.text, currentQuestion.answer) {
+        if Utils.shared.compare(answerTextview.text, currentQuestion.answer) {
             totalPoint += 100 / Double(questions.count)
             nextQuestion()
         } else {

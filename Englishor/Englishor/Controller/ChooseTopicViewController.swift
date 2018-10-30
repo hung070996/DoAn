@@ -25,12 +25,10 @@ class ChooseTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "spin")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: UIColor(red: 252/256, green: 229/256, blue: 185/256, alpha: 1.0))
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "spin")!, iconInitialSize: CGSize(width: 150, height: 150), backgroundColor: UIColor(red: 252/256, green: 229/256, blue: 185/256, alpha: 1.0))
         
-        self.view.addSubview(revealingSplashView)
-        revealingSplashView.startAnimation(){
-            print("Completed")
-        }
+        view.addSubview(revealingSplashView)
+        revealingSplashView.startAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {

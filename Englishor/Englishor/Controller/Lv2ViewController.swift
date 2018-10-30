@@ -75,7 +75,7 @@ class Lv2ViewController: UIViewController {
                                             idTopic: Int(q[idTopic]))
                 questions.append(aQuestion)
             }
-            questions = getRandom(in: questions, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
+            questions = Utils.shared.getRandom(in: questions, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
             tableView.reloadData()
         } catch {
             

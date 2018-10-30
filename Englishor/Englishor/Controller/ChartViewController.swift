@@ -31,7 +31,7 @@ class ChartViewController: UIViewController {
         var line4 = [(Int, Int)]()
         var line5 = [(Int, Int)]()
         
-        let data  = getDataAnalytic()
+        let data  = Utils.shared.getDataAnalytic()
         for phase in data {
             if let date = phase.date {
                 if date.hasSuffix(month) {
@@ -46,7 +46,7 @@ class ChartViewController: UIViewController {
             
         }
         
-        let labelSettings = ChartLabelSettings(font: globalFont)
+        let labelSettings = ChartLabelSettings(font: Utils.shared.globalFont)
         
         let chartPoints = [(0,0),(0,20),(0,40),(0,60),(0,80),(0,100)].map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
         

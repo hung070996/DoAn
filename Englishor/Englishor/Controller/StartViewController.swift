@@ -26,7 +26,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         view.addGestureRecognizer(panGesture)
-        setupPressableButton(color: .green, shadow: .lightGray, button: readyButton)
+        Utils.shared.setupPressableButton(color: .green, shadow: .lightGray, button: readyButton)
         configFloaty()
         tutorialImageView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         tutorialImageView.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
@@ -42,7 +42,7 @@ class StartViewController: UIViewController {
         floaty.layer.shadowRadius = 1.0
         floaty.layer.masksToBounds = false
         floaty.fabDelegate = self
-        FloatyManager.defaultInstance().font = globalFont
+        FloatyManager.defaultInstance().font = Utils.shared.globalFont
         
         floaty.addItem("Change topic",
                        icon: Phase.shared.topic?.iconStraight,

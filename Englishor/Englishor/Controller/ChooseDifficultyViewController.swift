@@ -17,9 +17,9 @@ class ChooseDifficultyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPressableButton(color: .green, shadow: .lightGray, button: easyButton)
-        setupPressableButton(color: .orange, shadow: .lightGray, button: mediumButton)
-        setupPressableButton(color: .red, shadow: .lightGray, button: hardButton)
+        Utils.shared.setupPressableButton(color: .green, shadow: .lightGray, button: easyButton)
+        Utils.shared.setupPressableButton(color: .orange, shadow: .lightGray, button: mediumButton)
+        Utils.shared.setupPressableButton(color: .red, shadow: .lightGray, button: hardButton)
         navigationView.setTitle(title: "Difficulty")
         navigationView.setHiddenView(nextLv: true, title: false, back: false)
     }

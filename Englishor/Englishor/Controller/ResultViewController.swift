@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChart()
-        setupPressableButton(color: nil, shadow: nil, button: backToHomeButton)
+        Utils.shared.setupPressableButton(color: nil, shadow: nil, button: backToHomeButton)
     }
     
     func setupChart() {

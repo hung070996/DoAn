@@ -19,7 +19,6 @@ class Lv4ViewController: UIViewController {
     @IBOutlet weak var microphoneButton: UIButton!
     @IBOutlet weak var navigationView: NavigationView!
     
-    private let speechSynthesizer = AVSpeechSynthesizer()
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -78,9 +77,11 @@ class Lv4ViewController: UIViewController {
         }
     }
     
-    func speechAndText(text: String) {
-        let speechUtterance = AVSpeechUtterance(string: text)
-        speechSynthesizer.speak(speechUtterance)
+    func scrollToBottom() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.conversation.count - 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     func startRecording() {
@@ -94,9 +95,10 @@ class Lv4ViewController: UIViewController {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setMode(AVAudioSession.Mode.measurement)
+//            try audioSession.setMode(AVAudioSession.Mode.measurement)
+            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [.defaultToSpeaker])
+            
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
@@ -128,9 +130,10 @@ class Lv4ViewController: UIViewController {
                                         guard let `self` = self else { return }
                                         guard let response = response as? AIResponse else { return }
                                         if let textResponse = response.result.fulfillment.speech {
+                                            Utils.shared.speechAndText(text: textResponse)
                                             self.conversation.append(textResponse)
                                             self.tableView.reloadData()
-                                            self.speechAndText(text: textResponse)
+                                            self.scrollToBottom()
                                         }
                                     }, failure: { (request, error) in
                                         print(error!)
@@ -167,10 +170,11 @@ extension Lv4ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
+        if indexPath.row % 2 != 0 {
             let cell: LeftChatCell = tableView.dequeueReusableCell(for: indexPath)
             cell.avatar.image = UIImage(named: "microphone")
             cell.label.text = conversation[indexPath.row]
+            
             return cell
         } else {
             let cell: RightChatCell = tableView.dequeueReusableCell(for: indexPath)
@@ -178,7 +182,6 @@ extension Lv4ViewController: UITableViewDelegate, UITableViewDataSource {
             cell.label.text = conversation[indexPath.row]
             return cell
         }
-        
     }
 }
 

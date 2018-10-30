@@ -68,7 +68,7 @@ class Lv5ViewController: UIViewController {
             formatter.dateFormat = "dd-MM-yyyy"
             let date = formatter.string(from: Date())
             Phase.shared.date = date
-            var data = getDataAnalytic()
+            var data = Utils.shared.getDataAnalytic()
             if data.last?.date != date {
                 data.append(Phase.shared)
             }
@@ -93,6 +93,7 @@ class Lv5ViewController: UIViewController {
     
     func speechAndText(text: String) {
         let speechUtterance = AVSpeechUtterance(string: text)
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         speechSynthesizer.speak(speechUtterance)
     }
     

@@ -32,10 +32,11 @@ class Lv1ViewController: UIViewController {
         navigationView.delegate = self
     }
     
-    func speechAndText(text: String) {
-        let speechUtterance = AVSpeechUtterance(string: text)
-        speechSynthesizer.speak(speechUtterance)
-    }
+//    func speechAndText(text: String) {
+//        let speechUtterance = AVSpeechUtterance(string: text)
+//        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+//        speechSynthesizer.speak(speechUtterance)
+//    }
     
     func loadTable() {
         tableView.layer.borderWidth = 0.5
@@ -51,7 +52,7 @@ class Lv1ViewController: UIViewController {
                 let aWord = Word(id: Int(w[id]), word: w[word], meaning: w[meaning])
                 words.append(aWord)
             }
-            words = getRandom(in: words, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
+            words = Utils.shared.getRandom(in: words, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
             tableView.reloadData()
         } catch {
             
@@ -97,7 +98,7 @@ extension Lv1ViewController: Lv1CellDelegate {
         guard let index = tableView.indexPath(for: cell) else {
             return
         }
-        speechAndText(text: words[index.row].word)
+        Utils.shared.speechAndText(text: words[index.row].word)
         let popTip = PopTip()
         popTip.shouldDismissOnTap = true
         popTip.font = UIFont(name: "Chalkboard SE", size: 20)!

@@ -10,7 +10,7 @@ import UIKit
 import CountdownLabel
 import SwiftyButton
 import Speech
-import AVFoundation
+
 import AMPopTip
 import UITextField_Shake
 
@@ -26,7 +26,7 @@ class AnswerLv1ViewController: UIViewController {
     @IBOutlet weak var wordLabel: LTMorphingLabel!
     @IBOutlet weak var countdownView: CountdownView!
     
-    private let speechSynthesizer = AVSpeechSynthesizer()
+    
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -40,10 +40,10 @@ class AnswerLv1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        words = getRandom(in: words, quantity: words.count)
+        words = Utils.shared.getRandom(in: words, quantity: words.count)
         wordLabel.morphingEffect = .burn
-        setupPressableButton(color: .red, shadow: .lightGray, button: submitButton)
-        setupPressableButton(color: nil, shadow: nil, button: nextWordButton)
+        Utils.shared.setupPressableButton(color: .red, shadow: .lightGray, button: submitButton)
+        Utils.shared.setupPressableButton(color: nil, shadow: nil, button: nextWordButton)
         navigationView.setHiddenView(nextLv: false, title: false, back: true)
         navigationView.setTitle(title: "Lv1")
         navigationView.delegate = self
@@ -107,9 +107,10 @@ class AnswerLv1ViewController: UIViewController {
         
         let audioSession = AVAudioSession.sharedInstance()  
         do {
-            try audioSession.setMode(AVAudioSession.Mode.measurement)
+//            try audioSession.setMode(AVAudioSession.Mode.measurement)
+            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [.defaultToSpeaker])
+//            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [.defaultToSpeaker])
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
@@ -133,7 +134,7 @@ class AnswerLv1ViewController: UIViewController {
                                 recognitionRequest.endAudio()
                                 if result.isFinal {
                                     let resultText = result.bestTranscription.formattedString
-                                    if compare(resultText, self.words[self.index].word) {
+                                    if Utils.shared.compare(resultText, self.words[self.index].word) {
                                         self.true1.isHidden = false
                                         self.trueAnswer()
                                         self.currentResult.0 = true
@@ -185,7 +186,7 @@ class AnswerLv1ViewController: UIViewController {
     
     @IBAction func clickSubmit(_ sender: Any) {
         view.endEditing(true)
-        if compare(meaningTextfield.text ?? "", words[index].meaning) {
+        if Utils.shared.compare(meaningTextfield.text ?? "", words[index].meaning) {
             trueAnswer()
             self.currentResult.1 = true
             if self.currentResult == (true, true) {
