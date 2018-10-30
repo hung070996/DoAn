@@ -10,6 +10,7 @@ import UIKit
 import Speech
 import AVFoundation
 import ApiAI
+import AMPopTip
 
 class Lv4ViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class Lv4ViewController: UIViewController {
     private var totalPoint: Double = 70
     private var conversation = [String]()
     private var isPushed = false
+    private let popTip = PopTip()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,9 @@ class Lv4ViewController: UIViewController {
         navigationView.setHiddenView(nextLv: false, title: false, back: true)
         navigationView.setTitle(title: "Lv4")
         navigationView.delegate = self
+        popTip.shouldDismissOnTap = true
+        popTip.font = UIFont(name: "Chalkboard SE", size: 20)!
+        popTip.show(text: "Say Hi to start", direction: .right, maxWidth: 200.0, in: view, from: microphoneButton.frame)
     }
     
     func configTable() {
@@ -63,6 +68,7 @@ class Lv4ViewController: UIViewController {
     }
     
     @IBAction func clickRecord(_ sender: Any) {
+        popTip.hide()
         if audioEngine.isRunning {
             microphoneButton.setImage(UIImage(named: "micro"), for: .normal)
             audioEngine.stop()
@@ -97,6 +103,7 @@ class Lv4ViewController: UIViewController {
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         let inputNode = audioEngine.inputNode
+        inputNode.removeTap(onBus: 0)
         
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
@@ -119,7 +126,7 @@ class Lv4ViewController: UIViewController {
                                     request?.query = resultText
                                     request?.setMappedCompletionBlockSuccess({ [weak self] (request, response) in
                                         guard let `self` = self else { return }
-                                        let response = response as! AIResponse
+                                        guard let response = response as? AIResponse else { return }
                                         if let textResponse = response.result.fulfillment.speech {
                                             self.conversation.append(textResponse)
                                             self.tableView.reloadData()

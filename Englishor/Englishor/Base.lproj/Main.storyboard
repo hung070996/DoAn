@@ -934,10 +934,17 @@
                                     <constraint firstAttribute="width" constant="40" id="b7w-ZT-GOc"/>
                                 </constraints>
                                 <state key="normal" image="micro"/>
+                                <connections>
+                                    <action selector="clickRecord:" destination="CJ6-b3-VBF" eventType="touchUpInside" id="u2C-WQ-QbQ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gvg-35-KH9">
                                 <rect key="frame" x="10" y="120" width="355" height="371.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CJ6-b3-VBF" id="Ddc-qz-5lr"/>
+                                    <outlet property="delegate" destination="CJ6-b3-VBF" id="21s-S5-aIh"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -966,7 +973,9 @@
                     </view>
                     <connections>
                         <outlet property="countdownView" destination="JDq-Os-nRl" id="FOm-aU-tcq"/>
+                        <outlet property="microphoneButton" destination="Fg4-Zo-CC4" id="AzF-BN-beY"/>
                         <outlet property="navigationView" destination="dCf-RP-cOT" id="Ad1-K5-gWo"/>
+                        <outlet property="tableView" destination="gvg-35-KH9" id="qjm-vp-wSb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bsk-Wp-nkd" userLabel="First Responder" sceneMemberID="firstResponder"/>

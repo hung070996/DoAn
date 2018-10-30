@@ -116,6 +116,7 @@ class AnswerLv1ViewController: UIViewController {
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         let inputNode = audioEngine.inputNode
+        inputNode.removeTap(onBus: 0)
         
         guard let recognitionRequest = recognitionRequest else {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
