@@ -25,7 +25,7 @@ class Lv4ViewController: UIViewController {
     private let audioEngine = AVAudioEngine()
     
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfConversation
-    private var totalPoint: Double = 70
+    private var totalPoint: Double = 60
     private var conversation = [String]()
     private var isPushed = false
     private let popTip = PopTip()
@@ -95,7 +95,6 @@ class Lv4ViewController: UIViewController {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-//            try audioSession.setMode(AVAudioSession.Mode.measurement)
             try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
             
@@ -124,6 +123,7 @@ class Lv4ViewController: UIViewController {
                                     let resultText = result.bestTranscription.formattedString
                                     self.conversation.append(resultText)
                                     self.tableView.reloadData()
+                                    self.scrollToBottom()
                                     let request = ApiAI.shared().textRequest()
                                     request?.query = resultText
                                     request?.setMappedCompletionBlockSuccess({ [weak self] (request, response) in
@@ -147,7 +147,6 @@ class Lv4ViewController: UIViewController {
                                     inputNode.removeTap(onBus: 0)
                                     self.recognitionRequest = nil
                                     self.recognitionTask = nil
-                                    
                                 }
             })
         
@@ -172,13 +171,10 @@ extension Lv4ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row % 2 != 0 {
             let cell: LeftChatCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.avatar.image = UIImage(named: "microphone")
             cell.label.text = conversation[indexPath.row]
-            
             return cell
         } else {
             let cell: RightChatCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.avatar.image = UIImage(named: "micro")
             cell.label.text = conversation[indexPath.row]
             return cell
         }

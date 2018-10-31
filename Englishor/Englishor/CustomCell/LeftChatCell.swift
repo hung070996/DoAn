@@ -21,5 +21,6 @@ class LeftChatCell: UITableViewCell, NibReusable {
         boundView.layer.cornerRadius = 5
         boundView.layer.borderWidth = 1.0
         backgroundColor = .clear
+        avatar.image = UIImage(named: "bot")
     }
 }

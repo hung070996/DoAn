@@ -19,14 +19,13 @@ class Lv5ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var microphoneButton: UIButton!
     
-    private let speechSynthesizer = AVSpeechSynthesizer()
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfConversation
-    private var totalPoint: Double = 60
+    private var totalPoint: Double = 90
     private var conversation = [String]()
     private var isPushed = false
     private let popTip = PopTip()
@@ -39,10 +38,7 @@ class Lv5ViewController: UIViewController {
         navigationView.delegate = self
         popTip.shouldDismissOnTap = true
         popTip.font = UIFont(name: "Chalkboard SE", size: 20)!
-        guard let name = Phase.shared.topic?.name else {
-            return
-        }
-        popTip.show(text: "Say Ask me about \(name) to start", direction: .right, maxWidth: 200.0, in: view, from: microphoneButton.frame)
+        popTip.show(text: "Say Ask me to start", direction: .right, maxWidth: 200.0, in: view, from: microphoneButton.frame)
     }
     
     func configTable() {
@@ -91,10 +87,11 @@ class Lv5ViewController: UIViewController {
         }
     }
     
-    func speechAndText(text: String) {
-        let speechUtterance = AVSpeechUtterance(string: text)
-        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        speechSynthesizer.speak(speechUtterance)
+    func scrollToBottom() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.conversation.count - 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
     }
     
     func startRecording() {
@@ -108,9 +105,8 @@ class Lv5ViewController: UIViewController {
         
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setMode(AVAudioSession.Mode.measurement)
+            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
-            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement, options: [.defaultToSpeaker])
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
@@ -136,18 +132,20 @@ class Lv5ViewController: UIViewController {
                                     let resultText = result.bestTranscription.formattedString
                                     self.conversation.append(resultText)
                                     self.tableView.reloadData()
+                                    self.scrollToBottom()
                                     let request = ApiAI.shared().textRequest()
                                     request?.query = resultText
                                     request?.setMappedCompletionBlockSuccess({ [weak self] (request, response) in
                                         guard let `self` = self else { return }
                                         guard let response = response as? AIResponse else { return }
                                         if let textResponse = response.result.fulfillment.speech {
+                                            Utils.shared.speechAndText(text: textResponse)
                                             self.conversation.append(textResponse)
                                             self.tableView.reloadData()
-                                            self.speechAndText(text: textResponse)
+                                            self.scrollToBottom()
                                         }
-                                        }, failure: { (request, error) in
-                                            print(error!)
+                                    }, failure: { (request, error) in
+                                        print(error!)
                                     })
                                     ApiAI.shared().enqueue(request)
                                 }
@@ -158,7 +156,6 @@ class Lv5ViewController: UIViewController {
                                     inputNode.removeTap(onBus: 0)
                                     self.recognitionRequest = nil
                                     self.recognitionTask = nil
-                                    
                                 }
             })
         
@@ -187,17 +184,14 @@ extension Lv5ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
+        if indexPath.row % 2 != 0 {
             let cell: LeftChatCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.avatar.image = UIImage(named: "microphone")
             cell.label.text = conversation[indexPath.row]
             return cell
         } else {
             let cell: RightChatCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.avatar.image = UIImage(named: "micro")
             cell.label.text = conversation[indexPath.row]
             return cell
         }
-        
     }
 }

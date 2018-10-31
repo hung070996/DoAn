@@ -120,10 +120,11 @@ extension Lv2ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if currentQuestion.answer.toIndexAnswer() == indexPath.row {
             totalPoint += 100 / Double(Phase.shared.difficulty?.numberOfQuestion ?? 0)
+            Utils.shared.playSound(correct: true)
+        } else {
+            Utils.shared.playSound(correct: false)
         }
-        print(totalPoint)
         nextQuestion()
-        
     }
 }
 

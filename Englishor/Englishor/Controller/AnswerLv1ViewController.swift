@@ -196,9 +196,10 @@ class AnswerLv1ViewController: UIViewController {
                 }
             }
             true2.isHidden = false
-
+            Utils.shared.playSound(correct: true)
         } else {
             meaningTextfield.shake()
+            Utils.shared.playSound(correct: false)
         }
     }
 }

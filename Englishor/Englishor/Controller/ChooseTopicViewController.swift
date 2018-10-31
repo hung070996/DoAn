@@ -25,7 +25,7 @@ class ChooseTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "spin")!, iconInitialSize: CGSize(width: 150, height: 150), backgroundColor: UIColor(red: 252/256, green: 229/256, blue: 185/256, alpha: 1.0))
+        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "appicon")!, iconInitialSize: CGSize(width: 150, height: 150), backgroundColor: UIColor(red: 252/256, green: 229/256, blue: 185/256, alpha: 1.0))
         
         view.addSubview(revealingSplashView)
         revealingSplashView.startAnimation()
@@ -39,8 +39,8 @@ class ChooseTopicViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        rotateButton.shadowHeight = 10
-        rotateButton.cornerRadius = rotateButton.frame.size.width / 2 - 5
+        rotateButton.shadowHeight = 6
+        rotateButton.cornerRadius = (rotateButton.frame.size.width - rotateButton.shadowHeight) / 2
     }
     
     func setup() {
@@ -73,7 +73,7 @@ class ChooseTopicViewController: UIViewController {
             targetView.transform = targetView.transform.rotated(by: CGFloat.pi)
         }) { [unowned self] finished in
             let remain = count - 0.5
-            if remain > 2 {
+            if remain > 3 {
                 self.rotateView(targetView: targetView, count: remain, random: random)
             } else {
                 self.finish(random: random)

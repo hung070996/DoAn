@@ -14,11 +14,14 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var backToHomeButton: PressableButton!
     @IBOutlet weak var chartView: JYRadarChart!
+    @IBOutlet weak var navigationView: NavigationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupChart()
         Utils.shared.setupPressableButton(color: nil, shadow: nil, button: backToHomeButton)
+        navigationView.setHiddenView(nextLv: true, title: false, back: true)
+        navigationView.setTitle(title: "Result")
     }
     
     func setupChart() {
@@ -33,7 +36,7 @@ class ResultViewController: UIViewController {
         chartView.colorOpacity = 0.7
         chartView.attributes = ["Lv1", "Lv2", "Lv3", "Lv4", "Lv5"]
         chartView.setColors([UIColor.red])
-        chartView.drawPoints = true
+//        chartView.drawPoints = true
         chartView.drawStrokePoints = true
         chartView.pointsStrokeSize = 5
         chartView.r = 150

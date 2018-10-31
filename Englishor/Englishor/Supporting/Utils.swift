@@ -17,28 +17,43 @@ class Utils {
     
     let globalFont = UIFont(name: "Chalkboard SE", size: 20)!
     let speechSynthesizer = AVSpeechSynthesizer()
-    var speechUtterance = AVSpeechUtterance()
+    var player: AVAudioPlayer?
     
-    func setupPressableButton(color: UIColor?, shadow: UIColor?, button: PressableButton) {
-        if let color = color, let shadow = shadow {
-            button.colors = .init(button: color, shadow: shadow)
-        }
-        button.shadowHeight = 10
-        button.cornerRadius = 10
-        button.depth = 0.5
-        //        button.layer.borderColor = UIColor.black.cgColor
-        //        button.layer.borderWidth = 2
-    }
-    
-    func speechAndText(text: String) {
-        let audioSession = AVAudioSession.sharedInstance()  //2
+    func endRecord() {
+        let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSession.Category.soloAmbient, mode: AVAudioSession.Mode.spokenAudio, options: [])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
-        speechUtterance = AVSpeechUtterance(string: text)
+    }
+    
+    func playSound(correct: Bool) {
+        endRecord()
+        let string = correct ? "correct.mp3" : "wrong.mp3"
+        let path = Bundle.main.path(forResource: string, ofType: nil)!
+        let url = URL(fileURLWithPath: path)
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch {
+            
+        }
+    }
+    
+    func setupPressableButton(color: UIColor?, shadow: UIColor?, button: PressableButton) {
+        if let color = color, let shadow = shadow {
+            button.colors = .init(button: color, shadow: shadow)
+        }
+        button.shadowHeight = 6
+        button.cornerRadius = 10
+        button.depth = 0.5
+    }
+    
+    func speechAndText(text: String) {
+        endRecord()
+        let speechUtterance = AVSpeechUtterance(string: text)
         speechSynthesizer.speak(speechUtterance)
     }
     

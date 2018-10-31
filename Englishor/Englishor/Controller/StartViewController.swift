@@ -9,6 +9,7 @@
 import UIKit
 import Floaty
 import SwiftyButton
+import CoreData
 
 class StartViewController: UIViewController {
 
@@ -16,8 +17,9 @@ class StartViewController: UIViewController {
     @IBOutlet weak var readyButton: PressableButton!
     @IBOutlet weak var tutorialImageView: UIImageView!
     @IBOutlet weak var tutorialLabel: UILabel!
+    @IBOutlet weak var loud: UIImageView!
     
-    let tutorialArray = ["Level 1. You will have time to learn new words, you can click the loud to hear the pronounciation and see the meaning of words. After that, you must speak and input the meaning of the words.", "Level 2. You will choose the best anwer which is the best meaning of the sentence.", "Lv3. You have to input the English sentence.", "Lv4. You will talk with bot. You will ask, bot will answer.", "Lv5. You will talk with bot. Bot will ask, you will answer."]
+    let tutorialArray = ["Level 1. You will have time to learn new words, you can click the     to hear the pronounciation and see the meaning of words. After that, you must speak and input the meaning of the words.", "Level 2. You will choose the best answer which is the best meaning of the sentence.", "Lv3. You have to input the English sentence.", "Lv4. You will talk with bot. You will ask, bot will answer.", "Lv5. You will talk with bot. Bot will ask, you will answer."]
     var index = 0
     var blurEffectView = UIVisualEffectView()
     var panGesture = UIPanGestureRecognizer()
@@ -33,6 +35,11 @@ class StartViewController: UIViewController {
         tutorialImageView.layer.shadowOpacity = 1.0
         tutorialImageView.layer.shadowRadius = 1.0
         tutorialImageView.layer.masksToBounds = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.layoutSubviews()
     }
     
     func configFloaty() {
@@ -86,6 +93,7 @@ class StartViewController: UIViewController {
                     self.view.removeGestureRecognizer(panGesture)
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [unowned self] in
                         self.index += 1
+                        self.loud.isHidden = self.index == 0 ? false : true
                         self.tutorialLabel.text = self.tutorialArray[self.index]
                     }
                 }, completion: { [unowned self] _ in
@@ -97,6 +105,7 @@ class StartViewController: UIViewController {
                     self.view.removeGestureRecognizer(panGesture)
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25) { [unowned self] in
                         self.index -= 1
+                        self.loud.isHidden = self.index == 0 ? false : true
                         self.tutorialLabel.text = self.tutorialArray[self.index]
                     }
                 }, completion: { [unowned self] _ in

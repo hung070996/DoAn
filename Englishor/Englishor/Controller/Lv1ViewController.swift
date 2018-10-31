@@ -32,12 +32,6 @@ class Lv1ViewController: UIViewController {
         navigationView.delegate = self
     }
     
-//    func speechAndText(text: String) {
-//        let speechUtterance = AVSpeechUtterance(string: text)
-//        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-//        speechSynthesizer.speak(speechUtterance)
-//    }
-    
     func loadTable() {
         tableView.layer.borderWidth = 0.5
         do {
@@ -70,7 +64,8 @@ class Lv1ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        countdownView.start(time: timeCountdown) { [unowned self] in
+        countdownView.start(time: timeCountdown) { [weak self] in
+            guard let `self` = self else { return }
             self.pushToAnswer()
         }
     }
@@ -99,10 +94,7 @@ extension Lv1ViewController: Lv1CellDelegate {
             return
         }
         Utils.shared.speechAndText(text: words[index.row].word)
-        let popTip = PopTip()
-        popTip.shouldDismissOnTap = true
-        popTip.font = UIFont(name: "Chalkboard SE", size: 20)!
-        popTip.show(text: words[index.row].meaning, direction: .left, maxWidth: 200, in: cell.contentView, from: frameButton, duration: 3)
+        cell.popTip.show(text: words[index.row].meaning, direction: .left, maxWidth: 200, in: cell.contentView, from: frameButton, duration: 3)
     }
 }
 

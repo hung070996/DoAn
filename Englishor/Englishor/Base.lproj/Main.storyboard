@@ -234,23 +234,33 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZK-oR-fub">
                                 <rect key="frame" x="60" y="200" width="255" height="250.5"/>
-                                <string key="text">Level 1. You will have time to learn new words, you can click the loud to hear the pronounciation and see the meaning of words. After that, you must speak and input the meaning of the words.</string>
+                                <string key="text">Level 1. You will have time to learn new words, you can click the     to hear the pronounciation and see the meaning of words. After that, you must speak and input the meaning of the words.</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loud" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-25-DLr">
+                                <rect key="frame" x="145" y="270" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="PWL-td-bJQ"/>
+                                    <constraint firstAttribute="width" secondItem="gkF-25-DLr" secondAttribute="height" id="rCt-GI-Z4d"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gkF-25-DLr" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="top" constant="150" id="3KN-BZ-Qva"/>
                             <constraint firstItem="fyv-l6-DxN" firstAttribute="top" secondItem="A0e-Wd-Vzq" secondAttribute="top" constant="100" id="47R-JH-3jX"/>
                             <constraint firstItem="wQr-Z6-caj" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="bottom" constant="30" id="4MX-6g-kqi"/>
                             <constraint firstItem="qd8-l5-lx1" firstAttribute="height" secondItem="pjZ-eg-eih" secondAttribute="height" id="7DA-Ac-6hI"/>
                             <constraint firstItem="MKK-Xg-LBy" firstAttribute="width" secondItem="pjZ-eg-eih" secondAttribute="width" multiplier="1/2" id="A2d-WQ-S9Y"/>
+                            <constraint firstItem="gkF-25-DLr" firstAttribute="leading" secondItem="fyv-l6-DxN" secondAttribute="leading" constant="105" id="D4F-ff-KNC"/>
                             <constraint firstItem="MKK-Xg-LBy" firstAttribute="height" secondItem="pjZ-eg-eih" secondAttribute="height" multiplier="1/10" id="F86-Sa-Lh9"/>
                             <constraint firstItem="A0e-Wd-Vzq" firstAttribute="bottom" secondItem="MKK-Xg-LBy" secondAttribute="bottom" constant="20" id="Fgo-eY-X0D"/>
                             <constraint firstItem="A0e-Wd-Vzq" firstAttribute="trailing" secondItem="MKK-Xg-LBy" secondAttribute="trailing" constant="20" id="GKX-Aw-zgw"/>
                             <constraint firstItem="qd8-l5-lx1" firstAttribute="centerX" secondItem="A0e-Wd-Vzq" secondAttribute="centerX" id="IXs-ER-F8p"/>
                             <constraint firstItem="qd8-l5-lx1" firstAttribute="width" secondItem="pjZ-eg-eih" secondAttribute="width" id="P6G-mY-E0C"/>
+                            <constraint firstItem="MKK-Xg-LBy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wQr-Z6-caj" secondAttribute="trailing" constant="8" symbolic="YES" id="RMh-xH-g4C"/>
                             <constraint firstItem="wQr-Z6-caj" firstAttribute="leading" secondItem="A0e-Wd-Vzq" secondAttribute="leading" constant="20" id="Ru7-rk-VFN"/>
                             <constraint firstItem="wQr-Z6-caj" firstAttribute="height" secondItem="MKK-Xg-LBy" secondAttribute="height" id="T2s-lW-1lh"/>
                             <constraint firstItem="GZK-oR-fub" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="top" constant="80" id="TeX-GV-EXA"/>
@@ -266,6 +276,7 @@
                     </view>
                     <connections>
                         <outlet property="floaty" destination="wQr-Z6-caj" id="pfh-dD-3Bb"/>
+                        <outlet property="loud" destination="gkF-25-DLr" id="C5c-sF-cBp"/>
                         <outlet property="readyButton" destination="MKK-Xg-LBy" id="p8O-Rk-Zhg"/>
                         <outlet property="tutorialImageView" destination="fyv-l6-DxN" id="MpH-6C-elZ"/>
                         <outlet property="tutorialLabel" destination="GZK-oR-fub" id="cwa-wq-sjX"/>
@@ -766,6 +777,9 @@
                                 <state key="normal" title="Next question">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickNextQuestion:" destination="F5A-pX-t3S" eventType="touchUpInside" id="quL-1P-SdB"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W3V-50-eIY">
                                 <rect key="frame" x="10" y="152.5" width="355" height="251"/>
@@ -1010,18 +1024,26 @@
                                     <action selector="clickBackToHome:" destination="Nlm-2O-9sm" eventType="touchUpInside" id="uwR-Wv-htz"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CeI-CD-03r" customClass="NavigationView" customModule="Englishor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3Kj-BJ-GEX" firstAttribute="centerX" secondItem="fUT-6f-Qbl" secondAttribute="centerX" id="7uU-zi-oz8"/>
+                            <constraint firstItem="CeI-CD-03r" firstAttribute="height" secondItem="Q08-23-Tod" secondAttribute="height" multiplier="70/667" id="AH4-mH-93v"/>
                             <constraint firstItem="3Kj-BJ-GEX" firstAttribute="centerY" secondItem="fUT-6f-Qbl" secondAttribute="centerY" id="Kdw-Zj-ybQ"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="centerX" secondItem="fUT-6f-Qbl" secondAttribute="centerX" id="OTm-pp-eWr"/>
+                            <constraint firstItem="CeI-CD-03r" firstAttribute="top" secondItem="Q08-23-Tod" secondAttribute="top" id="QXe-dN-VL8"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="width" secondItem="Q08-23-Tod" secondAttribute="width" id="WNc-Sk-U4P"/>
                             <constraint firstItem="pUw-zP-QfR" firstAttribute="top" secondItem="3Kj-BJ-GEX" secondAttribute="bottom" constant="30" id="YaH-FW-RZr"/>
                             <constraint firstItem="3Kj-BJ-GEX" firstAttribute="width" secondItem="Q08-23-Tod" secondAttribute="width" id="Yz4-24-B4K"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="height" secondItem="Q08-23-Tod" secondAttribute="height" id="e84-HH-rIg"/>
                             <constraint firstItem="pUw-zP-QfR" firstAttribute="centerX" secondItem="h55-Id-wA2" secondAttribute="centerX" id="faf-Zv-i7F"/>
+                            <constraint firstItem="CeI-CD-03r" firstAttribute="leading" secondItem="fUT-6f-Qbl" secondAttribute="leading" id="fhb-7Y-w1a"/>
                             <constraint firstItem="pUw-zP-QfR" firstAttribute="height" secondItem="h55-Id-wA2" secondAttribute="height" multiplier="1/10" id="g8T-ZH-kLp"/>
+                            <constraint firstItem="CeI-CD-03r" firstAttribute="trailing" secondItem="fUT-6f-Qbl" secondAttribute="trailing" id="jQU-Tw-mPi"/>
                             <constraint firstItem="pUw-zP-QfR" firstAttribute="leading" secondItem="fUT-6f-Qbl" secondAttribute="leading" constant="30" id="t15-Fe-aiU"/>
                             <constraint firstItem="h55-Id-wA2" firstAttribute="centerY" secondItem="fUT-6f-Qbl" secondAttribute="centerY" id="z8H-NZ-rzT"/>
                         </constraints>
@@ -1030,6 +1052,7 @@
                     <connections>
                         <outlet property="backToHomeButton" destination="pUw-zP-QfR" id="Brx-zw-CBv"/>
                         <outlet property="chartView" destination="3Kj-BJ-GEX" id="D8h-Qi-cez"/>
+                        <outlet property="navigationView" destination="CeI-CD-03r" id="kh9-rn-mSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtq-c7-Lff" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1057,6 +1080,7 @@
     <resources>
         <image name="arrow" width="72" height="72"/>
         <image name="background" width="783.5770263671875" height="1044.7694091796875"/>
+        <image name="loud" width="512" height="512"/>
         <image name="micro" width="400.69564819335938" height="400.69564819335938"/>
         <image name="notebook" width="195" height="256"/>
         <image name="spin" width="400.69564819335938" height="400.69564819335938"/>
