@@ -18,6 +18,22 @@ class Utils {
     let globalFont = UIFont(name: "Chalkboard SE", size: 20)!
     let speechSynthesizer = AVSpeechSynthesizer()
     var player: AVAudioPlayer?
+    let synonyms = [
+        "like": ["love", "would like", "prefer"],
+        "lovely": ["cute"]
+    ]
+    
+    func standardSentence (sentence: String) -> String {
+        var temp = sentence
+        for item in synonyms {
+            for value in item.value {
+                if temp.contains(value) {
+                    temp = temp.replacingOccurrences(of: value, with: item.key)
+                }
+            }
+        }
+        return temp
+    }
     
     func endRecord() {
         let audioSession = AVAudioSession.sharedInstance()

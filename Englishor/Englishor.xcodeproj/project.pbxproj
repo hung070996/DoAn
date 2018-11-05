@@ -160,8 +160,8 @@
 		08AFD7DE216F92C50096800C /* Englishor */ = {
 			isa = PBXGroup;
 			children = (
-				B6118C5C2180555E00B83794 /* Extension */,
 				08AFD7E6216F92C70096800C /* Assets.xcassets */,
+				B6118C5C2180555E00B83794 /* Extension */,
 				08838DA8217B2C58005D238D /* CountdownView */,
 				B60D75E42178757300C2167B /* NavigationView */,
 				B60D75D921782ED600C2167B /* CustomCell */,

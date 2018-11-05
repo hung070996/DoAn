@@ -91,7 +91,7 @@ class Lv3ViewController: UIViewController {
     }
     
     @IBAction func clickSubmit(_ sender: PressableButton) {
-        if Utils.shared.compare(answerTextview.text, currentQuestion.answer) {
+        if Utils.shared.compare(Utils.shared.standardSentence(sentence: answerTextview.text), Utils.shared.standardSentence(sentence: currentQuestion.answer)) {
             totalPoint += 100 / Double(questions.count)
             Utils.shared.playSound(correct: true)
             nextQuestion()
