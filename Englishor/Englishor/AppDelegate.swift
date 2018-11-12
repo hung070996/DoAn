@@ -19,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configuration.clientAccessToken = "59ffc1de38674081871181580f1f5a6b"
         let apiai = ApiAI.shared()
         apiai?.configuration = configuration
+
+        if UserDefaults.standard.string(forKey: "hourNoti") == nil {
+            UserDefaults.standard.set("09", forKey: "hourNoti")
+            UserDefaults.standard.set("00", forKey: "minuteNoti")
+            Utils.shared.setLocalNoti()
+        }
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Chalkboard SE", size: 15)!, NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        UITabBar.appearance().tintColor = UIColor.black
         return true
     }
 }

@@ -26,6 +26,7 @@
 		781D99E9462EF381DFA9C263 /* Pods_Englishor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */; };
 		B6067617217EC2250099BA43 /* Lv5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6067616217EC2250099BA43 /* Lv5ViewController.swift */; };
 		B6067619217EC3530099BA43 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6067618217EC3530099BA43 /* ResultViewController.swift */; };
+		B6080AFA2199394400719030 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6080AF92199394400719030 /* SettingViewController.swift */; };
 		B60B5A4121893E2E0025A4B3 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B60B5A4021893E2E0025A4B3 /* correct.mp3 */; };
 		B60B5A4321893E360025A4B3 /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B60B5A4221893E360025A4B3 /* wrong.mp3 */; };
 		B60BD4DA2179C21F0044046C /* QuestionLv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60BD4D92179C21F0044046C /* QuestionLv2.swift */; };
@@ -83,6 +84,7 @@
 		A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Englishor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6067616217EC2250099BA43 /* Lv5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lv5ViewController.swift; sourceTree = "<group>"; };
 		B6067618217EC3530099BA43 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		B6080AF92199394400719030 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B60B5A4021893E2E0025A4B3 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		B60B5A4221893E360025A4B3 /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
 		B60BD4D92179C21F0044046C /* QuestionLv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLv2.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				B6067616217EC2250099BA43 /* Lv5ViewController.swift */,
 				B6067618217EC3530099BA43 /* ResultViewController.swift */,
 				B60D75D021770E2D00C2167B /* ChartViewController.swift */,
+				B6080AF92199394400719030 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				B67CB4A9217DBC2300FB605D /* LeftChatCell.swift in Sources */,
 				B60D75D121770E2D00C2167B /* ChartViewController.swift in Sources */,
 				08838DA7217B2C23005D238D /* AnswerLv1ViewController.swift in Sources */,
+				B6080AFA2199394400719030 /* SettingViewController.swift in Sources */,
 				B60D75DC21782F0500C2167B /* Lv1Cell.swift in Sources */,
 				B60BD4E62179CAC70044046C /* Lv3ViewController.swift in Sources */,
 				B60D75E321785C9400C2167B /* Phase.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import SwiftyButton
 import AVFoundation
+import UserNotifications
 
 class Utils {
     static let shared = Utils()
@@ -98,6 +99,40 @@ class Utils {
             let decodedData = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! [Phase]
             return decodedData
         }
+    }
+    
+    func setLocalNoti() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllDeliveredNotifications()
+        center.removeAllPendingNotificationRequests()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        center.requestAuthorization(options: options) { (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "It's time!!!"
+        content.body = "Don't forget to practice everyday"
+        content.sound = UNNotificationSound.default
+        
+        let date = Date()
+        var triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second], from: date)
+        triggerDaily.hour = Int(UserDefaults.standard.string(forKey: "hourNoti") ?? "9")
+        triggerDaily.minute = Int(UserDefaults.standard.string(forKey: "minuteNoti") ?? "0")
+        triggerDaily.second = 0
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
+        let identifier = "Englishor"
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        center.add(request) { error in
+            if let error = error {
+                print("center add error \(error)")
+            }
+        }
+        content.categoryIdentifier = "Englishor"
     }
 
 }
