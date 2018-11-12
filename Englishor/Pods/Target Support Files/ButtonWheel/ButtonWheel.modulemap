@@ -1,0 +1,6 @@
+framework module ButtonWheel {
+  umbrella header "ButtonWheel-umbrella.h"
+
+  export *
+  module * { export * }
+}

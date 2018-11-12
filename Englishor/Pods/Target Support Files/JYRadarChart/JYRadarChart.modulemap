@@ -1,0 +1,6 @@
+framework module JYRadarChart {
+  umbrella header "JYRadarChart-umbrella.h"
+
+  export *
+  module * { export * }
+}
