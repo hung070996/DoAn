@@ -92,8 +92,7 @@ class ChooseTopicViewController: UIViewController {
                 self.topicButton.transform = self.topicButton.transform.rotated(by: CGFloat.pi / 3 * CGFloat(random))
             }, completion: { [unowned self] (_) in
                 self.topicLabel.text = Topic(rawValue: random + 1)?.name
-//                Phase.shared.topic = Topic(rawValue: random + 1)
-                Phase.shared.topic = Topic.animal
+                Phase.shared.topic = Topic(rawValue: random + 1)
                 self.pushToDifficulty(rotate: 5 * CGFloat.pi / 3 * CGFloat(random))
             })
         } else {
