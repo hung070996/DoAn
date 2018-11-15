@@ -32,6 +32,11 @@ class Lv1ViewController: UIViewController {
         navigationView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     func loadTable() {
         tableView.layer.borderWidth = 0.5
         do {

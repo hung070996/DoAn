@@ -53,22 +53,4 @@ enum Topic: Int {
             return "color-1"
         }
     }
-    
-    var radian: CGFloat {
-        let unit = CGFloat.pi / 6
-        switch self {
-        case .animal:
-            return unit * 7
-        case .school:
-            return unit * 9
-        case .food:
-            return unit * 11
-        case .home:
-            return unit * 1
-        case .sport:
-            return unit * 3
-        case .color:
-            return unit * 5
-        }
-    }
 }
