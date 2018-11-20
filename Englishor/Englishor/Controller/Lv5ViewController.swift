@@ -10,7 +10,6 @@ import UIKit
 import Speech
 import AVFoundation
 import ApiAI
-import AMPopTip
 
 class Lv5ViewController: UIViewController {
 
@@ -28,7 +27,6 @@ class Lv5ViewController: UIViewController {
     private var totalPoint: Double = 90
     private var conversation = [String]()
     private var isPushed = false
-    private let popTip = PopTip()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +34,23 @@ class Lv5ViewController: UIViewController {
         navigationView.setHiddenView(nextLv: false, title: false, back: true)
         navigationView.setTitle(title: "Lv5")
         navigationView.delegate = self
-        popTip.shouldDismissOnTap = true
-        popTip.font = UIFont(name: "Chalkboard SE", size: 20)!
-        popTip.show(text: "Say Ask me to start", direction: .right, maxWidth: 200.0, in: view, from: microphoneButton.frame)
+        
+        let request = ApiAI.shared().textRequest()
+        guard let name = Phase.shared.topic?.name else { return }
+        request?.query = "Ask about" + name
+        request?.setMappedCompletionBlockSuccess({ [weak self] (request, response) in
+            guard let `self` = self else { return }
+            guard let response = response as? AIResponse else { return }
+            if let textResponse = response.result.fulfillment.speech {
+                Utils.shared.speechAndText(text: textResponse)
+                self.conversation.append(textResponse)
+                self.tableView.reloadData()
+                self.scrollToBottom()
+            }
+            }, failure: { (request, error) in
+                print(error!)
+        })
+        ApiAI.shared().enqueue(request)
     }
     
     func configTable() {
@@ -77,7 +89,6 @@ class Lv5ViewController: UIViewController {
     }
     
     @IBAction func clickRecord(_ sender: Any) {
-        popTip.hide()
         if audioEngine.isRunning {
             microphoneButton.setImage(UIImage(named: "micro"), for: .normal)
             audioEngine.stop()
@@ -184,7 +195,7 @@ extension Lv5ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 != 0 {
+        if indexPath.row % 2 == 0 {
             let cell: LeftChatCell = tableView.dequeueReusableCell(for: indexPath)
             cell.label.text = conversation[indexPath.row]
             return cell

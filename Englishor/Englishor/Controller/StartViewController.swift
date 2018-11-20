@@ -39,8 +39,13 @@ class StartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.layoutSubviews()
         tabBarController?.tabBar.isHidden = false
+        view.layoutIfNeeded()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        floaty.close()
     }
     
     func configFloaty() {
@@ -74,14 +79,6 @@ class StartViewController: UIViewController {
                                 break
                             }
                         }
-                        self.floaty.close()
-        })
-        floaty.addItem("Analytics",
-                       icon: UIImage(named: "analytic")!,
-                       titlePosition: .right,
-                       handler: { [unowned self] item in
-                        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChartViewController") as? ChartViewController
-                        self.navigationController?.pushViewController(vc!, animated: true)
                         self.floaty.close()
         })
     }

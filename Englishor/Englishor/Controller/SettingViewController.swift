@@ -14,12 +14,18 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var doneButton: PressableButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var timeButton: PressableButton!
+    @IBOutlet weak var timePickerView: UIView!
+    @IBOutlet weak var navigationView: NavigationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         doneButton.isHidden = true
-        timePicker.isHidden = true
+        timePickerView.isHidden = true
+        timePickerView.layer.borderWidth = 0.5
+        timePickerView.layer.borderColor = UIColor.gray.cgColor
         setTitleTimeButton()
+        navigationView.setHiddenView(nextLv: true, title: false, back: true)
+        navigationView.setTitle(title: "Setting")
     }
     
     func setTitleTimeButton() {
@@ -39,14 +45,14 @@ class SettingViewController: UIViewController {
         UserDefaults.standard.set(stringMinute, forKey: "minuteNoti")
         Utils.shared.setLocalNoti()
         doneButton.isHidden = true
-        timePicker.isHidden = true
+        timePickerView.isHidden = true
         timeButton.isHidden = false
         setTitleTimeButton()
     }
     
     @IBAction func clickSetTime(_ sender: Any) {
         doneButton.isHidden = false
-        timePicker.isHidden = false
+        timePickerView.isHidden = false
         timeButton.isHidden = true
     }
 }

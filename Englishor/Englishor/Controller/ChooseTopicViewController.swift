@@ -10,7 +10,6 @@ import UIKit
 import ButtonWheel
 import SwiftyButton
 import CountdownLabel
-import RevealingSplashView
 
 class ChooseTopicViewController: UIViewController {
     
@@ -24,15 +23,7 @@ class ChooseTopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = true
         setup()
-        let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "appicon")!, iconInitialSize: CGSize(width: 150, height: 150), backgroundColor: UIColor(red: 252/256, green: 229/256, blue: 185/256, alpha: 1.0))
-        
-        view.addSubview(revealingSplashView)
-        revealingSplashView.startAnimation { [weak self] in
-            guard let `self` = self else { return }
-            self.tabBarController?.tabBar.isHidden = false
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,8 +95,7 @@ class ChooseTopicViewController: UIViewController {
                     self.topicButton.transform = self.topicButton.transform.rotated(by: CGFloat.pi / 3 * CGFloat(random - 3))
                 }, completion: { [unowned self] (_) in
                     self.topicLabel.text = Topic(rawValue: random + 1)?.name
-//                    Phase.shared.topic = Topic(rawValue: random + 1)
-                    Phase.shared.topic = Topic.animal
+                    Phase.shared.topic = Topic(rawValue: random + 1)
                     self.pushToDifficulty(rotate: 2 * CGFloat.pi / 3 * CGFloat(random - 3))
                 })
             }

@@ -18,7 +18,7 @@ class ChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationView.setHiddenView(nextLv: true, title: false, back: false)
+        navigationView.setHiddenView(nextLv: true, title: false, back: true)
         navigationView.setTitle(title: "Analytic")
         
         let formatter = DateFormatter()

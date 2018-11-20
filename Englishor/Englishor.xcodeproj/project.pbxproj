@@ -52,6 +52,7 @@
 		B6118C60218055C600B83794 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C5F218055C600B83794 /* UIView+.swift */; };
 		B6118C62218055D400B83794 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C61218055D400B83794 /* String+.swift */; };
 		B618FD582182EE9800BD7954 /* micro_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = B618FD572182EE9700BD7954 /* micro_active.gif */; };
+		B62FF17321A3B473009647D3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62FF17221A3B473009647D3 /* SplashViewController.swift */; };
 		B6771AAE217DC81C00AE377E /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6771AAC217DC81C00AE377E /* RightChatCell.swift */; };
 		B6771AAF217DC81C00AE377E /* RightChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6771AAD217DC81C00AE377E /* RightChatCell.xib */; };
 		B67CB4A2217D828100FB605D /* QuestionLv3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CB4A1217D828100FB605D /* QuestionLv3.swift */; };
@@ -110,6 +111,7 @@
 		B6118C5F218055C600B83794 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		B6118C61218055D400B83794 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B618FD572182EE9700BD7954 /* micro_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = micro_active.gif; sourceTree = "<group>"; };
+		B62FF17221A3B473009647D3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B6771AAC217DC81C00AE377E /* RightChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
 		B6771AAD217DC81C00AE377E /* RightChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightChatCell.xib; sourceTree = "<group>"; };
 		B67CB4A1217D828100FB605D /* QuestionLv3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLv3.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		B60D75D721782E8300C2167B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B62FF17221A3B473009647D3 /* SplashViewController.swift */,
 				08B70FCC2174D7CE00649682 /* ChooseTopicViewController.swift */,
 				086ABA86217631B900F5FE57 /* ChooseDifficultyViewController.swift */,
 				086ABA8821763F9800F5FE57 /* StartViewController.swift */,
@@ -442,6 +445,7 @@
 				08838DAC217B2D23005D238D /* CountdownView.swift in Sources */,
 				086ABA8921763F9800F5FE57 /* StartViewController.swift in Sources */,
 				B67CB4A2217D828100FB605D /* QuestionLv3.swift in Sources */,
+				B62FF17321A3B473009647D3 /* SplashViewController.swift in Sources */,
 				08B70FDA2174DE4000649682 /* Topic.swift in Sources */,
 				B60D75D32177130700C2167B /* ExamplesDefaults.swift in Sources */,
 				B60BD4DE2179C5380044046C /* Answer.swift in Sources */,
@@ -621,6 +625,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VG5JZ5RSZ7;
 				INFOPLIST_FILE = Englishor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,6 +645,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VG5JZ5RSZ7;
 				INFOPLIST_FILE = Englishor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
