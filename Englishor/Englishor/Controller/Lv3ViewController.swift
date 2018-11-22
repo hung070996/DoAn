@@ -46,21 +46,42 @@ class Lv3ViewController: UIViewController {
         }
     }
     
+    func getSynonymsById(idQuestion: Int) -> [Synonym] {
+        var synonyms = [Synonym]()
+        let table = Table("Synonym")
+        let id = Expression<Int>("id")
+        let original = Expression<String>("original")
+        let synonym = Expression<String>("synonym")
+        let idQuestionLv3 = Expression<Int>("idQuestionLv3")
+        do {
+            let filter = table.filter(idQuestionLv3 == idQuestion)
+            for row in try DatabaseManager.shared.connection!.prepare(filter) {
+                let result = Synonym(id: row[id],
+                                     original: row[original],
+                                     synonym: row[synonym],
+                                     idQuestionLv3: row[idQuestionLv3])
+                synonyms.append(result)
+            }
+        } catch {
+            
+        }
+        return synonyms
+    }
+    
     func loadData() {
-        
         let questionTable = Table("QuestionLv3")
         let id = Expression<Int>("id")
         let idTopic = Expression<Int>("idTopic")
         let question = Expression<String>("question")
         let answer = Expression<String>("answer")
-        
         do {
             let filter = questionTable.filter(idTopic == Phase.shared.topic?.rawValue ?? 0)
             for q in try DatabaseManager.shared.connection!.prepare(filter) {
-                let aQuestion = QuestionLv3(id: Int(q[id]),
+                let aQuestion = QuestionLv3(id: q[id],
                                             question: q[question],
                                             answer: q[answer],
-                                            idTopic: Int(q[idTopic]))
+                                            idTopic: q[idTopic],
+                                            synonyms: getSynonymsById(idQuestion: q[id]))
                 questions.append(aQuestion)
             }
             questions = Utils.shared.getRandom(in: questions, quantity: Phase.shared.difficulty?.numberOfQuestion ?? 0)
@@ -91,7 +112,7 @@ class Lv3ViewController: UIViewController {
     }
     
     @IBAction func clickSubmit(_ sender: PressableButton) {
-        if Utils.shared.compare(Utils.shared.standardSentence(sentence: answerTextview.text), Utils.shared.standardSentence(sentence: currentQuestion.answer)) {
+        if Utils.shared.compare(standardAnswer(answer: answerTextview.text, question: currentQuestion), currentQuestion.answer) {
             totalPoint += 100 / Double(questions.count)
             Utils.shared.playSound(correct: true)
             nextQuestion()
@@ -99,6 +120,16 @@ class Lv3ViewController: UIViewController {
             Utils.shared.playSound(correct: false)
             answerTextview.shakeView()
         }
+    }
+    
+    func standardAnswer(answer: String, question: QuestionLv3) -> String {
+        var temp = answer.lowercased()
+        for item in question.synonyms {
+            if temp.contains(item.synonym) {
+                temp = temp.replacingOccurrences(of: item.synonym, with: item.original)
+            }
+        }
+        return temp
     }
     
     @IBAction func clickNextQuestion(_ sender: Any) {

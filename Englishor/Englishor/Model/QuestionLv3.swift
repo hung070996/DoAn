@@ -13,4 +13,5 @@ struct QuestionLv3 {
     var question: String
     var answer: String
     var idTopic: Int
+    var synonyms: [Synonym]
 }

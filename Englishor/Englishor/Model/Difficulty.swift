@@ -23,6 +23,17 @@ enum Difficulty: Int {
         }
     }
     
+    var id: Int {
+        switch self {
+        case .easy:
+            return 0
+        case .medium:
+            return 1
+        case .hard:
+            return 2
+        }
+    }
+    
     var image: UIImage {
         var string = ""
         switch self {

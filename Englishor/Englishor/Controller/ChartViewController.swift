@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftCharts
+import SQLite
 
 class ChartViewController: UIViewController {
     
@@ -31,8 +32,31 @@ class ChartViewController: UIViewController {
         var line4 = [(Int, Int)]()
         var line5 = [(Int, Int)]()
         
-        let data  = Utils.shared.getDataAnalytic()
-        for phase in data {
+        let table = Table("Phase")
+        let date = Expression<String>("date")
+        let pointLv1 = Expression<Int>("pointLv1")
+        let pointLv2 = Expression<Int>("pointLv2")
+        let pointLv3 = Expression<Int>("pointLv3")
+        let pointLv4 = Expression<Int>("pointLv4")
+        let pointLv5 = Expression<Int>("pointLv5")
+        
+        var phases = [Phase]()
+        do {
+            for row in try DatabaseManager.shared.connection!.prepare(table) {
+                let phase = Phase(pointLv1: row[pointLv1],
+                                  pointLv2: row[pointLv2],
+                                  pointLv3: row[pointLv3],
+                                  pointLv4: row[pointLv4],
+                                  pointLv5: row[pointLv5],
+                                  date: row[date])
+                phases.append(phase)
+            }
+            
+        } catch {
+            
+        }
+        
+        for phase in phases {
             if let date = phase.date {
                 if date.hasSuffix(month) {
                     let day = String(date.prefix(2))

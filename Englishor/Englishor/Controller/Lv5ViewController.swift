@@ -10,6 +10,7 @@ import UIKit
 import Speech
 import AVFoundation
 import ApiAI
+import SQLite
 
 class Lv5ViewController: UIViewController {
 
@@ -70,18 +71,50 @@ class Lv5ViewController: UIViewController {
     }
     
     func pushToResult() {
+        let phase = Phase.shared
+        let table = Table("Phase")
+        let date = Expression<String>("date")
+        let pointLv1 = Expression<Int>("pointLv1")
+        let pointLv2 = Expression<Int>("pointLv2")
+        let pointLv3 = Expression<Int>("pointLv3")
+        let pointLv4 = Expression<Int>("pointLv4")
+        let pointLv5 = Expression<Int>("pointLv5")
+        let idTopic = Expression<Int>("idTopic")
+        let idDifficulty = Expression<Int>("idDifficulty")
+
         if !isPushed {
+            
             Phase.shared.pointLv5 = Int(totalPoint)
+            
             let formatter = DateFormatter()
             formatter.dateFormat = "dd-MM-yyyy"
-            let date = formatter.string(from: Date())
-            Phase.shared.date = date
-            var data = Utils.shared.getDataAnalytic()
-            if data.last?.date != date {
-                data.append(Phase.shared)
+            let today = formatter.string(from: Date())
+            
+            Phase.shared.date = today
+            do {
+                var check = false
+                for row in try DatabaseManager.shared.connection!.prepare(table) {
+                    if row[date] == today {
+                        check = true
+                        break
+                    }
+                }
+                
+                if !check {
+                    let insert = table.insert(date <- phase.date ?? "",
+                                              pointLv1 <- phase.pointLv1 ?? 0,
+                                              pointLv2 <- phase.pointLv2 ?? 0,
+                                              pointLv3 <- phase.pointLv3 ?? 0,
+                                              pointLv4 <- phase.pointLv4 ?? 0,
+                                              pointLv5 <- phase.pointLv5 ?? 0,
+                                              idTopic <- phase.topic.id,
+                                              idDifficulty <- phase.difficulty.id)
+                    try DatabaseManager.shared.connection!.run(insert)
+                }
+            } catch {
+                
             }
-            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: data)
-            UserDefaults.standard.set(encodedData, forKey: "data")
+            
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
             navigationController?.pushViewController(vc!, animated: true)
             isPushed = true

@@ -29,6 +29,23 @@ enum Topic: Int {
         }
     }
     
+    var id: Int {
+        switch self {
+        case .animal:
+            return 0
+        case .school:
+            return 1
+        case .food:
+            return 2
+        case .home:
+            return 3
+        case .sport:
+            return 4
+        case .color:
+            return 5
+        }
+    }
+    
     var icon: UIImage {
         return UIImage(named: name) ?? UIImage()
     }

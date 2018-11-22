@@ -52,6 +52,7 @@
 		B6118C60218055C600B83794 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C5F218055C600B83794 /* UIView+.swift */; };
 		B6118C62218055D400B83794 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C61218055D400B83794 /* String+.swift */; };
 		B618FD582182EE9800BD7954 /* micro_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = B618FD572182EE9700BD7954 /* micro_active.gif */; };
+		B62776A921A64FFE00845ECB /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62776A821A64FFE00845ECB /* Synonym.swift */; };
 		B62FF17321A3B473009647D3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62FF17221A3B473009647D3 /* SplashViewController.swift */; };
 		B6771AAE217DC81C00AE377E /* RightChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6771AAC217DC81C00AE377E /* RightChatCell.swift */; };
 		B6771AAF217DC81C00AE377E /* RightChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6771AAD217DC81C00AE377E /* RightChatCell.xib */; };
@@ -111,6 +112,7 @@
 		B6118C5F218055C600B83794 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		B6118C61218055D400B83794 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B618FD572182EE9700BD7954 /* micro_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = micro_active.gif; sourceTree = "<group>"; };
+		B62776A821A64FFE00845ECB /* Synonym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synonym.swift; sourceTree = "<group>"; };
 		B62FF17221A3B473009647D3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B6771AAC217DC81C00AE377E /* RightChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightChatCell.swift; sourceTree = "<group>"; };
 		B6771AAD217DC81C00AE377E /* RightChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightChatCell.xib; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				B67CB4A1217D828100FB605D /* QuestionLv3.swift */,
 				B60BD4DB2179C3380044046C /* DatabaseManager.swift */,
 				B60BD4DD2179C5380044046C /* Answer.swift */,
+				B62776A821A64FFE00845ECB /* Synonym.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				B60D75CF2176EFA200C2167B /* Lv2ViewController.swift in Sources */,
 				08AFD7E0216F92C50096800C /* AppDelegate.swift in Sources */,
 				B6118C5E2180557700B83794 /* UIImage+.swift in Sources */,
+				B62776A921A64FFE00845ECB /* Synonym.swift in Sources */,
 				B60D75CB2176D50800C2167B /* Lv1ViewController.swift in Sources */,
 				B60D75E12178371000C2167B /* Difficulty.swift in Sources */,
 			);
