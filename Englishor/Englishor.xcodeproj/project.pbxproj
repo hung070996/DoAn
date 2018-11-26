@@ -51,6 +51,7 @@
 		B6118C5E2180557700B83794 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C5D2180557700B83794 /* UIImage+.swift */; };
 		B6118C60218055C600B83794 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C5F218055C600B83794 /* UIView+.swift */; };
 		B6118C62218055D400B83794 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6118C61218055D400B83794 /* String+.swift */; };
+		B6164FCC21AB98C50078E581 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B6164FCB21AB98C50078E581 /* libsqlite3.tbd */; };
 		B618FD582182EE9800BD7954 /* micro_active.gif in Resources */ = {isa = PBXBuildFile; fileRef = B618FD572182EE9700BD7954 /* micro_active.gif */; };
 		B62776A921A64FFE00845ECB /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62776A821A64FFE00845ECB /* Synonym.swift */; };
 		B62FF17321A3B473009647D3 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62FF17221A3B473009647D3 /* SplashViewController.swift */; };
@@ -111,6 +112,7 @@
 		B6118C5D2180557700B83794 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		B6118C5F218055C600B83794 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		B6118C61218055D400B83794 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		B6164FCB21AB98C50078E581 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B618FD572182EE9700BD7954 /* micro_active.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = micro_active.gif; sourceTree = "<group>"; };
 		B62776A821A64FFE00845ECB /* Synonym.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Synonym.swift; sourceTree = "<group>"; };
 		B62FF17221A3B473009647D3 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6164FCC21AB98C50078E581 /* libsqlite3.tbd in Frameworks */,
 				B60D75DF2178328E00C2167B /* libsqlite3.0.tbd in Frameworks */,
 				781D99E9462EF381DFA9C263 /* Pods_Englishor.framework in Frameworks */,
 			);
@@ -185,6 +188,7 @@
 		0F834F16EA8777E98B25D81B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6164FCB21AB98C50078E581 /* libsqlite3.tbd */,
 				B60D75DE2178328E00C2167B /* libsqlite3.0.tbd */,
 				A8CA825EC59E8DA38C9C5B2E /* Pods_Englishor.framework */,
 			);
