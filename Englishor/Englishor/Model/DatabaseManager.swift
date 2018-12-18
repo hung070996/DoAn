@@ -14,26 +14,45 @@ class DatabaseManager {
     
     var connection : Connection? {
         do {
-//            let path = Bundle.main.path(forResource: "DoAnDB", ofType: "db")!
-//            return try Connection(path)
-//            let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-//                .appendingPathComponent("DoAnDB.db")
-//            print(fileURL)
-            return try Connection("/Users/do.tien.hung/Desktop/DoAn/DoAn/Englishor/Englishor/Supporting/DoAnDB.db")
-//            let path = NSSearchPathForDirectoriesInDomains(
-//                .documentDirectory, .userDomainMask, true
-//                ).first!
-//            let path = NSSearchPathForDirectoriesInDomains(
-//                .applicationSupportDirectory, .userDomainMask, true
-//                ).first! + Bundle.main.bundleIdentifier!
-//
-//            // create parent directory iff it doesn’t exist
-//            try FileManager.default.createDirectory(
-//                atPath: path, withIntermediateDirectories: true, attributes: nil
-//            )
-//            return try Connection("\(path)/DoAnDB.db")
+            copyDatabaseIfNeeded()
+            let path = NSSearchPathForDirectoriesInDomains(
+                .documentDirectory, .userDomainMask, true
+                ).first!
+            
+            return try Connection("\(path)/DoAnDB.db")
         } catch {
             return nil
         }
+    }
+    
+    func copyDatabaseIfNeeded() {
+        // Move database file from bundle to documents folder
+        
+        let fileManager = FileManager.default
+        
+        let documentsUrl = fileManager.urls(for: .documentDirectory,
+                                            in: .userDomainMask)
+        
+        guard documentsUrl.count != 0 else {
+            return // Could not find documents URL
+        }
+        
+        let finalDatabaseURL = documentsUrl.first!.appendingPathComponent("DoAnDB.db")
+        
+        if !( (try? finalDatabaseURL.checkResourceIsReachable()) ?? false) {
+            print("DB does not exist in documents folder")
+            
+            let documentsURL = Bundle.main.resourceURL?.appendingPathComponent("DoAnDB.db")
+            
+            do {
+                try fileManager.copyItem(atPath: (documentsURL?.path)!, toPath: finalDatabaseURL.path)
+            } catch let error as NSError {
+                print("Couldn't copy file to final location! Error:\(error.description)")
+            }
+            
+        } else {
+            print("Database file found at path: \(finalDatabaseURL.path)")
+        }
+        
     }
 }
