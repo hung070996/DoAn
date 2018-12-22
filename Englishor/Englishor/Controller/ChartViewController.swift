@@ -9,6 +9,7 @@
 import UIKit
 import SwiftCharts
 import SQLite
+import Toast_Swift
 
 class ChartViewController: UIViewController {
     
@@ -16,22 +17,25 @@ class ChartViewController: UIViewController {
     @IBOutlet weak var viewChart: UIView!
     @IBOutlet weak var navigationView: NavigationView!
     
+    var phases = [Phase]()
+    var month = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationView.setHiddenView(nextLv: true, title: false, back: true)
+        navigationView.setHiddenView(nextLv: false, title: false, back: false)
         navigationView.setTitle(title: "Analytic")
+        navigationView.delegate = self
+        navigationView.backDelegate = self
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-yyyy"
-        let month = formatter.string(from: Date())
-        
-        var line1 = [(Int, Int)]()
-        var line2 = [(Int, Int)]()
-        var line3 = [(Int, Int)]()
-        var line4 = [(Int, Int)]()
-        var line5 = [(Int, Int)]()
-        
+        month = formatter.string(from: Date())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        phases = [Phase]()
         let table = Table("Phase")
         let date = Expression<String>("date")
         let pointLv1 = Expression<Int>("pointLv1")
@@ -39,8 +43,6 @@ class ChartViewController: UIViewController {
         let pointLv3 = Expression<Int>("pointLv3")
         let pointLv4 = Expression<Int>("pointLv4")
         let pointLv5 = Expression<Int>("pointLv5")
-        
-        var phases = [Phase]()
         do {
             for row in try DatabaseManager.shared.connection!.prepare(table) {
                 let phase = Phase(pointLv1: row[pointLv1],
@@ -51,11 +53,31 @@ class ChartViewController: UIViewController {
                                   date: row[date])
                 phases.append(phase)
             }
-            
         } catch {
             
         }
-        
+        updateChart(month: month)
+    }
+    
+    func checkDataInPhases(month: String) -> Bool {
+        for phase in phases {
+            if let date = phase.date {
+                if date.hasSuffix(month) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
+    func updateChart(month: String) {
+        viewChart.subviews.forEach { $0.removeFromSuperview() }
+        navigationView.setTitle(title: month)
+        var line1 = [(Int, Int)]()
+        var line2 = [(Int, Int)]()
+        var line3 = [(Int, Int)]()
+        var line4 = [(Int, Int)]()
+        var line5 = [(Int, Int)]()
         for phase in phases {
             if let date = phase.date {
                 if date.hasSuffix(month) {
@@ -67,7 +89,10 @@ class ChartViewController: UIViewController {
                     line5.append((Int(day) ?? 0, phase.pointLv5 ?? 0))
                 }
             }
-            
+        }
+        
+        if line1.isEmpty {
+            line1 = [(0,0)]
         }
         
         let labelSettings = ChartLabelSettings(font: Utils.shared.globalFont)
@@ -75,19 +100,16 @@ class ChartViewController: UIViewController {
         let chartPoints = [(0,0),(0,20),(0,40),(0,60),(0,80),(0,100)].map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
         
         let chartPoints1 = line1.map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
-        
         let chartPoints2 = line2.map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
-        
         let chartPoints3 = line3.map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
-        
         let chartPoints4 = line4.map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
-        
         let chartPoints5 = line5.map { ChartPoint(x: ChartAxisValueDouble($0.0, labelSettings: labelSettings), y: ChartAxisValueDouble($0.1))}
         
         let xValues = chartPoints1.map { $0.x }
         
         let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: 0, maxSegmentCount: 100, multiple: 20, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
         
+
         let xModel = ChartAxisModel(axisValues: xValues, axisTitleLabel: ChartAxisLabel(text: "Day", settings: labelSettings))
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Point", settings: labelSettings.defaultVertical()))
         let chartFrame = ExamplesDefaults.chartFrame(viewChart.bounds)
@@ -146,5 +168,33 @@ class ChartViewController: UIViewController {
         
         viewChart.addSubview(chart.view)
         self.chart = chart
+    }
+}
+
+extension ChartViewController: BackNavigationViewDelegate {
+    func clickBack() {
+        let temp = month
+        let numberMonth = (Int(month.prefix(2)) ?? 0) - 1
+        month = numberMonth < 10 ? "0\(numberMonth)-\(month.suffix(4))" : "\(numberMonth)-\(month.suffix(4))"
+        if checkDataInPhases(month: month) {
+            updateChart(month: month)
+        } else {
+            view.makeToast("No data in previous month")
+            month = temp
+        }
+    }
+}
+
+extension ChartViewController: NavigationViewDelegate {
+    func clickNext() {
+        let temp = month
+        let numberMonth = (Int(month.prefix(2)) ?? 0) + 1
+        month = numberMonth < 10 ? "0\(numberMonth)-\(month.suffix(4))" : "\(numberMonth)-\(month.suffix(4))"
+        if checkDataInPhases(month: month) {
+            updateChart(month: month)
+        } else {
+            view.makeToast("No data in next month")
+            month = temp
+        }
     }
 }

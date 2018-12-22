@@ -13,6 +13,10 @@ protocol NavigationViewDelegate: class {
     func clickNext()
 }
 
+protocol BackNavigationViewDelegate: class {
+    func clickBack()
+}
+
 class NavigationView: UIView, NibOwnerLoadable {
 
     @IBOutlet private weak var backButton: UIButton!
@@ -20,6 +24,7 @@ class NavigationView: UIView, NibOwnerLoadable {
     @IBOutlet private weak var label: UILabel!
     
     weak var delegate: NavigationViewDelegate?
+    weak var backDelegate: BackNavigationViewDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -32,6 +37,7 @@ class NavigationView: UIView, NibOwnerLoadable {
     
     @IBAction func clickBack(_ sender: Any) {
         self.parentViewController?.navigationController?.popViewController(animated: true)
+        backDelegate?.clickBack()
     }
     
     func setTitle(title: String) {

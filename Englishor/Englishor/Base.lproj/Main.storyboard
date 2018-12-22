@@ -1149,6 +1149,9 @@
                                 <state key="normal" title="Clear data">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickClearData:" destination="Tnq-xN-ph8" eventType="touchUpInside" id="rVJ-wm-VJn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1189,6 +1192,7 @@
                     <tabBarItem key="tabBarItem" title="Setting" image="setting" selectedImage="setting" id="SBq-D8-waV"/>
                     <navigationItem key="navigationItem" id="cyN-Xb-0eM"/>
                     <connections>
+                        <outlet property="clearButton" destination="D0O-We-ash" id="ThM-UO-rvz"/>
                         <outlet property="doneButton" destination="OJQ-cn-FBt" id="1qk-nG-LEn"/>
                         <outlet property="navigationView" destination="kp8-9w-rz5" id="zbJ-aB-Odj"/>
                         <outlet property="timeButton" destination="jzC-Gw-KdT" id="HgB-7m-zhO"/>

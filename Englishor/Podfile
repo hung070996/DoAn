@@ -20,4 +20,5 @@ pod 'SDWebImage'
 pod 'SwiftCharts'
 pod 'SQLite.swift'
 pod 'UITextField+Shake'
+pod 'Toast-Swift'
 end
