@@ -25,7 +25,7 @@ class Lv5ViewController: UIViewController {
     private let audioEngine = AVAudioEngine()
     
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfConversation
-    private var totalPoint: Double = 90
+    private var totalPoint: Double = 0
     private var conversation = [String]()
     private var isPushed = false
     
@@ -38,13 +38,14 @@ class Lv5ViewController: UIViewController {
         
         let request = ApiAI.shared().textRequest()
         guard let name = Phase.shared.topic?.name else { return }
-        request?.query = "Ask about" + name
+        request?.query = "Ask me about " + name
         request?.setMappedCompletionBlockSuccess({ [weak self] (request, response) in
             guard let `self` = self else { return }
             guard let response = response as? AIResponse else { return }
             if let textResponse = response.result.fulfillment.speech {
                 Utils.shared.speechAndText(text: textResponse)
                 self.conversation.append(textResponse)
+                
                 self.tableView.reloadData()
                 self.scrollToBottom()
             }
@@ -185,6 +186,10 @@ class Lv5ViewController: UIViewController {
                                         if let textResponse = response.result.fulfillment.speech {
                                             Utils.shared.speechAndText(text: textResponse)
                                             self.conversation.append(textResponse)
+                                            self.totalPoint += 10
+                                            if self.totalPoint > 100 {
+                                                self.totalPoint = 100
+                                            }
                                             self.tableView.reloadData()
                                             self.scrollToBottom()
                                         }

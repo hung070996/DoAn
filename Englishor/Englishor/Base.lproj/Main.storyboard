@@ -249,14 +249,14 @@
                                 <rect key="frame" x="40" y="120" width="295" height="430.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZK-oR-fub">
-                                <rect key="frame" x="60" y="200" width="255" height="250.5"/>
+                                <rect key="frame" x="60" y="200" width="255" height="270.5"/>
                                 <string key="text">Level 1. You will have time to learn new words, you can click the     to hear the pronounciation and see the meaning of words. After that, you must speak and input the meaning of the words.</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loud" translatesAutoresizingMaskIntoConstraints="NO" id="gkF-25-DLr">
-                                <rect key="frame" x="145" y="265" width="24" height="24"/>
+                                <rect key="frame" x="145" y="280" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="PWL-td-bJQ"/>
                                     <constraint firstAttribute="width" secondItem="gkF-25-DLr" secondAttribute="height" id="rCt-GI-Z4d"/>
@@ -265,7 +265,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gkF-25-DLr" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="top" constant="145" id="3KN-BZ-Qva"/>
+                            <constraint firstItem="gkF-25-DLr" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="top" constant="160" id="3KN-BZ-Qva"/>
                             <constraint firstItem="fyv-l6-DxN" firstAttribute="top" secondItem="A0e-Wd-Vzq" secondAttribute="top" constant="100" id="47R-JH-3jX"/>
                             <constraint firstItem="wQr-Z6-caj" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="bottom" constant="30" id="4MX-6g-kqi"/>
                             <constraint firstItem="MKK-Xg-LBy" firstAttribute="width" secondItem="pjZ-eg-eih" secondAttribute="width" multiplier="1/2" id="A2d-WQ-S9Y"/>
@@ -280,7 +280,7 @@
                             <constraint firstItem="wQr-Z6-caj" firstAttribute="height" secondItem="MKK-Xg-LBy" secondAttribute="height" id="T2s-lW-1lh"/>
                             <constraint firstItem="GZK-oR-fub" firstAttribute="top" secondItem="fyv-l6-DxN" secondAttribute="top" constant="80" id="TeX-GV-EXA"/>
                             <constraint firstItem="qd8-l5-lx1" firstAttribute="top" secondItem="pjZ-eg-eih" secondAttribute="top" id="UkR-A4-KLW"/>
-                            <constraint firstItem="GZK-oR-fub" firstAttribute="bottom" secondItem="fyv-l6-DxN" secondAttribute="bottom" constant="-100" id="Ybk-B0-pIu"/>
+                            <constraint firstItem="GZK-oR-fub" firstAttribute="bottom" secondItem="fyv-l6-DxN" secondAttribute="bottom" constant="-80" id="Ybk-B0-pIu"/>
                             <constraint firstItem="GZK-oR-fub" firstAttribute="leading" secondItem="fyv-l6-DxN" secondAttribute="leading" constant="20" id="b5q-9a-7cY"/>
                             <constraint firstItem="fyv-l6-DxN" firstAttribute="leading" secondItem="A0e-Wd-Vzq" secondAttribute="leading" constant="40" id="fwg-nd-IqH"/>
                             <constraint firstItem="A0e-Wd-Vzq" firstAttribute="bottom" secondItem="wQr-Z6-caj" secondAttribute="bottom" constant="20" id="iEA-y1-zs1"/>

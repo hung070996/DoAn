@@ -25,7 +25,7 @@ class Lv4ViewController: UIViewController {
     private let audioEngine = AVAudioEngine()
     
     private var timeCountdown: Double = Phase.shared.difficulty.timeOfConversation
-    private var totalPoint: Double = 60
+    private var totalPoint: Double = 0
     private var conversation = [String]()
     private var isPushed = false
     private let popTip = PopTip()
@@ -131,6 +131,10 @@ class Lv4ViewController: UIViewController {
                                         guard let response = response as? AIResponse else { return }
                                         if let textResponse = response.result.fulfillment.speech {
                                             Utils.shared.speechAndText(text: textResponse)
+                                            self.totalPoint += 10
+                                            if self.totalPoint > 100 {
+                                                self.totalPoint = 100
+                                            }
                                             self.conversation.append(textResponse)
                                             self.tableView.reloadData()
                                             self.scrollToBottom()
