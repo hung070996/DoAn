@@ -39,8 +39,7 @@ class ChooseTopicViewController: UIViewController {
     }
     
     func setup() {
-        topicButton.transform = topicButton.transform.rotated(by: CGFloat.pi / 6 * 5)
-
+        topicButton.delegate = self
         navigationView.setHiddenView(nextLv: true, title: false, back: true)
         navigationView.setTitle(title: "Choose topic")
         var buttonPieces = [ButtonPiece]()
@@ -58,6 +57,7 @@ class ChooseTopicViewController: UIViewController {
     }
     
     @IBAction func clickRotate(_ sender: PressableButton) {
+        topicButton.transform = topicButton.transform.rotated(by: CGFloat.pi / 6 * 5)
         sender.isUserInteractionEnabled = false
         let random = Int.random(in: 0..<topics.count)
         self.rotateView(targetView: self.topicButton, count: 5, random: random)
@@ -84,7 +84,7 @@ class ChooseTopicViewController: UIViewController {
             }, completion: { [unowned self] (_) in
                 self.topicLabel.text = Topic(rawValue: random + 1)?.name
                 Phase.shared.topic = Topic(rawValue: random + 1)
-                self.pushToDifficulty(rotate: 5 * CGFloat.pi / 3 * CGFloat(random))
+                self.pushToDifficulty()
             })
         } else {
             UIView.animate(withDuration: 4, delay: 0, options: .curveLinear, animations: { [unowned self] in
@@ -96,19 +96,29 @@ class ChooseTopicViewController: UIViewController {
                 }, completion: { [unowned self] (_) in
                     self.topicLabel.text = Topic(rawValue: random + 1)?.name
                     Phase.shared.topic = Topic(rawValue: random + 1)
-                    self.pushToDifficulty(rotate: 2 * CGFloat.pi / 3 * CGFloat(random - 3))
+                    self.pushToDifficulty()
                 })
             }
         }
     }
     
-    func pushToDifficulty(rotate: CGFloat) {
+    func pushToDifficulty() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
             guard let `self` = self else { return }
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ChooseDifficultyViewController") as? ChooseDifficultyViewController
             self.navigationController?.pushViewController(vc!, animated: true)
-            self.topicButton.transform = self.topicButton.transform.rotated(by: rotate)
+            self.topicButton.transform = CGAffineTransform.identity
         }
     }
 
+}
+
+extension ChooseTopicViewController: ButtonWheelDelegate {
+    func didTapButtonWheelAtName(name : String) {
+        let topicName = topics.map { $0.name }
+        guard let index = topicName.firstIndex(of: name) else { return }
+        self.topicLabel.text = name
+        Phase.shared.topic = topics[index]
+        pushToDifficulty()
+    }
 }

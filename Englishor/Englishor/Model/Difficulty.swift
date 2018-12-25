@@ -50,22 +50,22 @@ enum Difficulty: Int {
     var timeOfLevel: (lv1: Double, answerLv1: Double, lv2: Double, lv3: Double) {
         switch self {
         case .easy:
-            return (lv1: 10, answerLv1: 30, lv2: 30, lv3: 60)
+            return (lv1: 90, answerLv1: 90, lv2: 90, lv3: 120)
         case .medium:
-            return (lv1: 90, answerLv1: 150, lv2: 90, lv3: 240)
+            return (lv1: 120, answerLv1: 120, lv2: 120, lv3: 240)
         case .hard:
-            return (lv1: 120, answerLv1: 180, lv2: 120, lv3: 300)
+            return (lv1: 180, answerLv1: 180, lv2: 150, lv3: 300)
         }
     }
     
     var timeOfConversation: Double {
         switch self {
         case .easy:
-            return 30
-        case .medium:
             return 60
-        case .hard:
+        case .medium:
             return 90
+        case .hard:
+            return 120
         }
     }
 }
